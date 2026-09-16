@@ -358,7 +358,6 @@
   .wa-link:hover { background: #128C7E; transform: scale(1.05); }
   .wa-icon { width: 14px; height: 14px; flex-shrink: 0; }
 
-  /* Tooltip Hover para Ciudad */
   .city-badge {
     display: inline-block;
     padding: 4px 10px;
@@ -403,7 +402,6 @@
   .city-pilar { background: #ffe0e9; color: #E63946; }
   .city-escobar { background: #e6ffe0; color: #2d6a2e; }
 
-  /* Estilo para fecha de ingreso */
   .date-cell {
     font-size: 10px;
     color: #7f8c8d;
@@ -433,17 +431,17 @@
     white-space: nowrap;
   }
   .plan-btn:hover { transform: scale(1.05); }
-  .plan-btn.basic.active {
+  .plan-btn.starter.active {
     background: #00B4D8;
     color: white;
     border-color: #00B4D8;
   }
-  .plan-btn.advanced.active {
+  .plan-btn.business.active {
     background: #FFD93D;
     color: #2c3e50;
     border-color: #FFD93D;
   }
-  .plan-btn.premium.active {
+  .plan-btn.ecommerce.active {
     background: linear-gradient(135deg, #9D4EDD 0%, #EF476F 100%);
     color: white;
     border-color: #9D4EDD;
@@ -479,9 +477,9 @@
     min-width: 80px;
     white-space: nowrap;
   }
-  .price-display.basic { background: #e0f4ff; color: #0077B6; }
-  .price-display.advanced { background: #fff4d6; color: #d48806; }
-  .price-display.premium { background: #f0e6ff; color: #9D4EDD; }
+  .price-display.starter { background: #e0f4ff; color: #0077B6; }
+  .price-display.business { background: #fff4d6; color: #d48806; }
+  .price-display.ecommerce { background: #f0e6ff; color: #9D4EDD; }
   .price-display.has-skill { box-shadow: 0 0 0 2px #E63946; }
 
   .potential-btn {
@@ -726,28 +724,57 @@
     </div>
   </div>
 
-  <h3 style="margin-top: 14px;">💰 Planes en Argentina (Precios Actualizados)</h3>
+  <h3 style="margin-top: 14px;">🇦🇷 Planes en Argentina (Precios Actualizados)</h3>
   <div class="pricing-grid">
     <div class="plan-card">
-      <div class="plan-name">🥉 Básico</div>
-      <div class="plan-price">$98.000 ARS</div>
-      <div class="plan-maintenance">+ $0/mes mantenimiento</div>
-      <div class="plan-desc">Landing page estática, diseño premium responsive, formulario de captura de leads.</div>
+      <div class="plan-name">🚀 PLAN STARTER</div>
+      <div class="plan-price">$120.000 ARS</div>
+      <div class="plan-maintenance">Pago único</div>
+      <div class="plan-desc">Landing / web institucional.</div>
     </div>
     <div class="plan-card popular">
-      <div class="plan-name">🥈 Avanzado</div>
-      <div class="plan-price">$160.000 ARS</div>
-      <div class="plan-maintenance">+ $30 USD/mes mantenimiento</div>
-      <div class="plan-desc">Incluye todo lo del Básico + animaciones premium, CRM automático, mantenimiento mensual.</div>
+      <div class="plan-name">💼 PLAN BUSINESS</div>
+      <div class="plan-price">$230.000 ARS</div>
+      <div class="plan-maintenance">+ US$30/mes mantenimiento</div>
+      <div class="plan-desc">Web + catálogo + WhatsApp + Mantenimiento.</div>
     </div>
     <div class="plan-card">
-      <div class="plan-name">🥇 Premium</div>
+      <div class="plan-name">🛒 PLAN E-COMMERCE</div>
       <div class="plan-price">$430.000 ARS</div>
-      <div class="plan-maintenance">+ $60 USD/mes mantenimiento</div>
-      <div class="plan-desc">Web completa full custom, e‑commerce integrado, SEO técnico avanzado, mantenimiento mensual.</div>
+      <div class="plan-maintenance">+ US$60/mes mantenimiento</div>
+      <div class="plan-desc" style="font-size: 10px; line-height: 1.4; text-align: left;">
+        <strong>Incluye:</strong> diseño, catálogo, categorías, buscador, filtros, fichas de producto, carrito, checkout, WhatsApp, responsive, SEO básico, carga inicial de productos, analítica, configuración comercial.<br><br>
+        <strong>🔄 MANTENIMIENTO:</strong> Podés convertirlo en una suscripción de: mantenimiento, actualizaciones, productos, soporte, backups, cambios, optimización, mejoras.
+      </div>
     </div>
   </div>
-  <div class="addon">
+
+  <h3 style="margin-top: 24px;">🌎 Planes en Latinoamérica (Precios Actualizados)</h3>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="plan-name">🚀 PLAN STARTER</div>
+      <div class="plan-price">US$90</div>
+      <div class="plan-maintenance">Pago único</div>
+      <div class="plan-desc">Landing / web institucional.</div>
+    </div>
+    <div class="plan-card popular">
+      <div class="plan-name">💼 PLAN BUSINESS</div>
+      <div class="plan-price">US$180</div>
+      <div class="plan-maintenance">+ US$30/mes mantenimiento</div>
+      <div class="plan-desc">Web + catálogo + WhatsApp + Mantenimiento.</div>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">🛒 PLAN E-COMMERCE</div>
+      <div class="plan-price">US$300</div>
+      <div class="plan-maintenance">+ US$60/mes mantenimiento</div>
+      <div class="plan-desc" style="font-size: 10px; line-height: 1.4; text-align: left;">
+        <strong>Incluye:</strong> diseño, catálogo, categorías, buscador, filtros, fichas de producto, carrito, checkout, WhatsApp, responsive, SEO básico, carga inicial de productos, analítica, configuración comercial.<br><br>
+        <strong>🔄 MANTENIMIENTO:</strong> Podés convertirlo en una suscripción de: mantenimiento, actualizaciones, productos, soporte, backups, cambios, optimización, mejoras.
+      </div>
+    </div>
+  </div>
+
+  <div class="addon" style="margin-top: 16px;">
     📊 <strong>Skill Tablero de Control específico para restaurantes:</strong> + 40 USD por única vez (Opcional) — Se suma al plan elegido.
   </div>
   <div class="payment-methods">
@@ -772,9 +799,9 @@
           <th style="text-align:left">Ciudad</th>
           <th>📅 Ingreso</th>
           <th>📞 WhatsApp</th>
-          <th>🥉 Básico</th>
-          <th>⭐ Avanzado</th>
-          <th>🥇 Premium</th>
+          <th>🚀 Starter</th>
+          <th>💼 Business</th>
+          <th>🛒 E-Commerce</th>
           <th>📊 Skill</th>
           <th>💰 Precio</th>
           <th>🎯 Potencial</th>
@@ -852,9 +879,9 @@ const leads = [
 
 // ==================== PRECIOS ====================
 const PLANES = {
-  basico:   { nombre:"Básico",   precio:98000,  mantenimiento:0,  emoji:"🥉" },
-  avanzado: { nombre:"Avanzado", precio:160000, mantenimiento:30, emoji:"⭐" },
-  premium:  { nombre:"Premium",  precio:430000, mantenimiento:60, emoji:"🥇" }
+  starter:   { nombre:"Starter",   precio:120000,  mantenimiento:0,  emoji:"🚀" },
+  business:  { nombre:"Business",  precio:230000,  mantenimiento:30, emoji:"💼" },
+  ecommerce: { nombre:"E-Commerce",precio:430000,  mantenimiento:60, emoji:"🛒" }
 };
 const PRECIO_SKILL = 40;
 
@@ -978,9 +1005,9 @@ function renderTable() {
       <td><span class="city-badge ${cityClass}" data-phone="${item.telefono}">${cityIcon} ${item.ciudad}</span></td>
       <td><span class="${dateClass}">${item.fecha}</span></td>
       <td>${waLink}</td>
-      <td><button class="plan-btn basic ${item.planSeleccionado==='basico'?'active':''}" onclick="selectPlan(${idx},'basico')">🥉 $98k</button></td>
-      <td><button class="plan-btn advanced ${item.planSeleccionado==='avanzado'?'active':''}" onclick="selectPlan(${idx},'avanzado')">⭐ $160k</button></td>
-      <td><button class="plan-btn premium ${item.planSeleccionado==='premium'?'active':''}" onclick="selectPlan(${idx},'premium')">🥇 $430k</button></td>
+      <td><button class="plan-btn starter ${item.planSeleccionado==='starter'?'active':''}" onclick="selectPlan(${idx},'starter')">🚀 $120k</button></td>
+      <td><button class="plan-btn business ${item.planSeleccionado==='business'?'active':''}" onclick="selectPlan(${idx},'business')">💼 $230k</button></td>
+      <td><button class="plan-btn ecommerce ${item.planSeleccionado==='ecommerce'?'active':''}" onclick="selectPlan(${idx},'ecommerce')">🛒 $430k</button></td>
       <td><button class="skill-btn ${item.skill?'active':''}" onclick="toggleSkill(${idx})">📊 ${item.skill?'✓ +$40':'Agregar'}</button></td>
       <td>${priceDisplay}</td>
       <td><button class="potential-btn ${item.potential?'active':''}" onclick="togglePotential(${idx})">${item.potential?'✓ Potencial':'Marcar'}</button></td>
