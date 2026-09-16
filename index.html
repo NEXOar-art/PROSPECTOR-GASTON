@@ -307,23 +307,23 @@
     white-space: nowrap;
   }
   .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 750px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11px; min-width: 950px; } /* Aumentado min-width para nuevos botones */
   thead {
     background: linear-gradient(135deg, #0077B6 0%, #00B4D8 100%);
     color: white;
   }
   th {
-    padding: 10px 8px;
+    padding: 10px 6px;
     text-align: center;
     font-weight: 600;
-    font-size: 10px;
+    font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 0.3px;
     white-space: nowrap;
   }
   th:nth-child(2) { text-align: left; }
   td {
-    padding: 10px 8px;
+    padding: 8px 6px;
     border-bottom: 1px solid #f0f4f8;
     vertical-align: middle;
     text-align: center;
@@ -350,7 +350,7 @@
     padding: 6px 10px;
     border-radius: 20px;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     transition: all 0.2s;
     white-space: nowrap;
@@ -452,6 +452,43 @@
   }
   .potential-btn:hover { transform: scale(1.05); }
 
+  /* Estilos para los nuevos botones de respuesta */
+  .reply-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    margin: 2px;
+    border: 1px solid transparent;
+  }
+  .reply-btn.yes {
+    background: #e6ffe0;
+    color: #2d6a2e;
+    border-color: #2d6a2e;
+  }
+  .reply-btn.yes:hover { background: #2d6a2e; color: white; }
+  
+  .reply-btn.price {
+    background: #fff4d6;
+    color: #d48806;
+    border-color: #d48806;
+  }
+  .reply-btn.price:hover { background: #d48806; color: white; }
+
+  .reply-btn.no {
+    background: #ffe0e9;
+    color: #E63946;
+    border-color: #E63946;
+  }
+  .reply-btn.no:hover { background: #E63946; color: white; }
+
   .scroll-hint {
     display: none;
     text-align: center;
@@ -509,15 +546,16 @@
     .total-item.highlight .value { font-size: 16px; }
     .exchange-rate-container input { width: 90px; font-size: 14px; }
     .table-header h3 { font-size: 12px; }
-    table { min-width: 680px; font-size: 11px; }
-    th { font-size: 9px; padding: 8px 5px; }
-    td { padding: 8px 5px; }
-    .wa-link { padding: 5px 8px; font-size: 10px; }
-    .plan-btn { padding: 4px 6px; font-size: 9px; }
-    .skill-btn { padding: 4px 6px; font-size: 9px; }
-    .potential-btn { padding: 4px 8px; font-size: 9px; }
-    .price-display { font-size: 10px; padding: 3px 8px; min-width: 70px; }
-    .city-badge { font-size: 10px; padding: 3px 8px; }
+    table { min-width: 850px; font-size: 10px; }
+    th { font-size: 8px; padding: 6px 4px; }
+    td { padding: 6px 4px; }
+    .wa-link { padding: 4px 6px; font-size: 9px; }
+    .plan-btn { padding: 3px 5px; font-size: 8px; }
+    .skill-btn { padding: 3px 5px; font-size: 8px; }
+    .potential-btn { padding: 3px 6px; font-size: 8px; }
+    .price-display { font-size: 9px; padding: 2px 6px; min-width: 60px; }
+    .city-badge { font-size: 9px; padding: 2px 6px; }
+    .reply-btn { padding: 3px 6px; font-size: 8px; }
   }
   @media (max-width: 360px) {
     .kpi-grid { grid-template-columns: 1fr 1fr; }
@@ -686,9 +724,10 @@
           <th>🥉 Básico</th>
           <th>⭐ Avanzado</th>
           <th>🥇 Premium</th>
-          <th>📊 Skill Tablero de Control (Opcional)</th>
-          <th>💰 Precio Total</th>
+          <th>📊 Skill</th>
+          <th>💰 Precio</th>
           <th>🎯 Potencial</th>
+          <th>Respuestas Rápidas</th>
         </tr>
       </thead>
       <tbody id="tbodyLeads"></tbody>
@@ -740,7 +779,24 @@ const leads = [
   {ciudad:"Villa María", telefono:"+5493415717782", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Villa María", telefono:"+5493541315834", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Villa María", telefono:"+5493548572947", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Capilla del Monte", telefono:"+5493548560346", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Capilla del Monte", telefono:"+5493548560346", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994515297", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994467649", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994452956", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994026924", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994430926", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995375781", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994435378", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994588277", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994451200", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995343094", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995078237", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996015790", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994428341", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994426016", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994486436", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996299663", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994657106", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -751,30 +807,35 @@ const PLANES = {
 };
 const PRECIO_SKILL = 40;
 
-// ==================== GENERAR MENSAJE WHATSAPP DINÁMICO ====================
+// ==================== GENERAR MENSAJES WHATSAPP ====================
+
+// 1. Mensaje Principal (Contacto Inicial)
 function generarMensajeWA(idx) {
   const lead = leads[idx];
-  const tc = parseFloat(document.getElementById('exchangeRate').value) || 1500;
   
-  let msg = `👋 ¡Hola! Buenos Dias!!. Somos NEXO-ART. Ayudamos a casas de repuestos de Motos y Automotrices a vender más y sistematizar su atención al cliente con su propia Tienda Web con venta directa a WhatsApp. Integramos todas tus redes sociales.\n\n🚀 ¿Qué vas a lograr con tu tienda online?\n* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp para que solo tengas que cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil de Google Maps para que los clientes de tu zona te encuentren primeros a vos y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n* Chau mensajes repetitivos: Ahorrá el tiempo de responder constantemente "¿Tenés stock?" o "¿Cuánto cuesta?".\n* Aumentá tus ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes perdidas. Convertí ese tiempo en despachos y ventas reales.\n* Atención profesional: Brindale a tu cliente la rapidez que espera al comprar repuestos para su vehículo. Te devuelvo lo más valioso: tiempo para hacer crecer tu negocio.\n\n🔗 Mirá un ejemplo de cómo se vería tu catálogo online acá: https://fc-racing.vercel.app/`;
+  let msg = `👋 ¡Hola! Buenas!!. Somos NEXO-ART. Te ayudamos a convertir tu catálogo actual en un canal de ventas online.\n\n🚀 ¿Qué vas a lograr con tu tienda online?\n* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp para que solo tengas que cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil de Google Maps para que los clientes de tu zona te encuentren primeros a vos y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n* Chau mensajes repetitivos: Ahorrá el tiempo de responder constantemente "¿Tenés stock?" o "¿Cuánto cuesta?".\n* Aumentá tus ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes perdidas. Convertí ese tiempo en despachos y ventas reales.\n* Atención profesional: Brindale a tu cliente la rapidez que espera al comprar repuestos para su vehículo. Te devuelvo lo más valioso: tiempo para hacer crecer tu negocio.\n\n🔗 Mirá un ejemplo de cómo se vería tu catálogo online acá: https://fc-racing.vercel.app/`;
 
-  if (lead.planSeleccionado) {
-    const plan = PLANES[lead.planSeleccionado];
-    msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
-    msg += `${plan.emoji} *Plan ${plan.nombre}:* $${plan.precio.toLocaleString('es-AR')} ARS\n`;
-    if (plan.mantenimiento > 0) {
-      const mantArs = Math.round(plan.mantenimiento * tc).toLocaleString('es-AR');
-      msg += `🔧 *Mantenimiento mensual:* $${plan.mantenimiento} USD (aprox. $${mantArs} ARS)/mes\n`;
-    } else {
-      msg += `🔧 *Mantenimiento mensual:* $0 (sin costo)\n`;
-    }
-    if (lead.skill) {
-      const skillArs = Math.round(PRECIO_SKILL * tc).toLocaleString('es-AR');
-      msg += `📊 *Skill Tablero de Control:* + $${PRECIO_SKILL} USD (aprox. $${skillArs} ARS) (pago único)\n`;
-    }
-    msg += `\n¡Quedamos a disposición para cualquier consulta!`;
-  }
+  return encodeURIComponent(msg);
+}
 
+// 2. Respuesta: SI (Interesado)
+function generarMensajeSI(idx) {
+  const lead = leads[idx];
+  let msg = `Perfecto 👍\n\nLa idea no es simplemente hacerles una página web.\n\nLa propuesta es transformar su catálogo actual en un canal de ventas online:\n\n🔎 Buscador de productos\n📂 Categorías y filtros\n📸 Fichas con imágenes y características\n💰 Precios y stock\n🛒 Carrito y pedido\n📱 Adaptado a celular\n💬 Integración con WhatsApp\n🚀 Diseño profesional y rápido\n\nAdemás, podemos trabajar con su catálogo actual para organizar los productos y facilitar muchísimo la búsqueda.\n\nSi me pasás el logo y, si tienen, el catálogo/listado de productos, puedo mostrarte cómo quedaría aplicado a su negocio.`;
+  return encodeURIComponent(msg);
+}
+
+// 3. Respuesta: CUANTO SALE? (Precio)
+function generarMensajePRECIO(idx) {
+  const lead = leads[idx];
+  let msg = `Tenemos diferentes alternativas según lo que necesite el negocio.\n\nPara un e-commerce completo, el plan Premium tiene un valor de $430.000, más US$60 mensuales por mantenimiento: actualizaciones, productos, soporte, backups, cambios, optimizacion. mejoras.\n\nIncluye la estructura de tienda online, catálogo, categorías, buscador, filtros, fichas de productos, carrito, adaptación móvil y las herramientas necesarias para convertir el catálogo en un canal de ventas.\n\nSi querés, primero te muestro una demo para que veas exactamente qué recibirías antes de decidir.`;
+  return encodeURIComponent(msg);
+}
+
+// 4. Respuesta: NO INTERESA (Objeción)
+function generarMensajeNO(idx) {
+  const lead = leads[idx];
+  let msg = `Totalmente, ningún problema 👍\n\nTe hago una última pregunta:\n\nSi pudieras hacer que un cliente encuentre un producto de tu catálogo por código, nombre o categoría desde el celular, sin tener que preguntarte todo por WhatsApp, ¿eso te ayudaría a ahorrar tiempo y recibir más pedidos?\n\nSi te interesa, te puedo mostrar cómo funcionaría específicamente para ${lead.ciudad}.`;
   return encodeURIComponent(msg);
 }
 
@@ -834,11 +895,23 @@ function renderTable() {
     let cityClass = 'city-lujan';
     let cityIcon = '🔧';
 
+    // Botón Principal
     const waMsg = generarMensajeWA(idx);
     const waLink = `<a href="https://wa.me/${item.telefono}?text=${waMsg}" target="_blank" class="wa-link">
       <svg class="wa-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Enviar
     </a>`;
+
+    // Botones de Respuesta Rápida
+    const msgSi = generarMensajeSI(idx);
+    const msgPrecio = generarMensajePRECIO(idx);
+    const msgNo = generarMensajeNO(idx);
+
+    const replyButtons = `
+      <a href="https://wa.me/${item.telefono}?text=${msgSi}" target="_blank" class="reply-btn yes" title="Si contesta SI">✅ Si</a>
+      <a href="https://wa.me/${item.telefono}?text=${msgPrecio}" target="_blank" class="reply-btn price" title="Si pregunta PRECIO">💰 Precio</a>
+      <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
+    `;
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
     if (item.planSeleccionado) {
@@ -861,6 +934,7 @@ function renderTable() {
       <td><button class="skill-btn ${item.skill?'active':''}" onclick="toggleSkill(${idx})">📊 ${item.skill?'✓ +$40':'Agregar'}</button></td>
       <td>${priceDisplay}</td>
       <td><button class="potential-btn ${item.potential?'active':''}" onclick="togglePotential(${idx})">${item.potential?'✓ Potencial':'Marcar'}</button></td>
+      <td>${replyButtons}</td>
     `;
     tbody.appendChild(tr);
   });
