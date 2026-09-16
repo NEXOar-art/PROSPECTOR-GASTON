@@ -307,7 +307,7 @@
     white-space: nowrap;
   }
   .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table { width: 100%; border-collapse: collapse; font-size: 11px; min-width: 950px; } /* Aumentado min-width para nuevos botones */
+  table { width: 100%; border-collapse: collapse; font-size: 11px; min-width: 1050px; }
   thead {
     background: linear-gradient(135deg, #0077B6 0%, #00B4D8 100%);
     color: white;
@@ -358,6 +358,7 @@
   .wa-link:hover { background: #128C7E; transform: scale(1.05); }
   .wa-icon { width: 14px; height: 14px; flex-shrink: 0; }
 
+  /* Tooltip Hover para Ciudad */
   .city-badge {
     display: inline-block;
     padding: 4px 10px;
@@ -365,10 +366,59 @@
     font-weight: 700;
     font-size: 11px;
     white-space: nowrap;
+    position: relative;
+    cursor: help;
+  }
+  .city-badge:hover::after {
+    content: attr(data-phone);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2c3e50;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    z-index: 100;
+    margin-bottom: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    pointer-events: none;
+  }
+  .city-badge:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #2c3e50;
+    margin-bottom: -6px;
+    z-index: 100;
+    pointer-events: none;
   }
   .city-lujan { background: #e0f4ff; color: #0077B6; }
   .city-pilar { background: #ffe0e9; color: #E63946; }
   .city-escobar { background: #e6ffe0; color: #2d6a2e; }
+
+  /* Estilo para fecha de ingreso */
+  .date-cell {
+    font-size: 10px;
+    color: #7f8c8d;
+    font-weight: 600;
+    white-space: nowrap;
+    background: #f8fafc;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+  .date-cell.new {
+    background: #e6ffe0;
+    color: #2d6a2e;
+    font-weight: 700;
+  }
 
   .plan-btn {
     background: white;
@@ -452,7 +502,6 @@
   }
   .potential-btn:hover { transform: scale(1.05); }
 
-  /* Estilos para los nuevos botones de respuesta */
   .reply-btn {
     display: inline-flex;
     align-items: center;
@@ -546,7 +595,7 @@
     .total-item.highlight .value { font-size: 16px; }
     .exchange-rate-container input { width: 90px; font-size: 14px; }
     .table-header h3 { font-size: 12px; }
-    table { min-width: 850px; font-size: 10px; }
+    table { min-width: 950px; font-size: 10px; }
     th { font-size: 8px; padding: 6px 4px; }
     td { padding: 6px 4px; }
     .wa-link { padding: 4px 6px; font-size: 9px; }
@@ -556,6 +605,7 @@
     .price-display { font-size: 9px; padding: 2px 6px; min-width: 60px; }
     .city-badge { font-size: 9px; padding: 2px 6px; }
     .reply-btn { padding: 3px 6px; font-size: 8px; }
+    .date-cell { font-size: 9px; padding: 3px 6px; }
   }
   @media (max-width: 360px) {
     .kpi-grid { grid-template-columns: 1fr 1fr; }
@@ -571,7 +621,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Lunes, 07 Septiembre 2026</div>
+  <div class="date">📅 Jueves, 17 Septiembre 2026</div>
 </div>
 
 <!-- Exchange Rate Input -->
@@ -720,6 +770,7 @@
         <tr>
           <th class="checkbox-cell">✓</th>
           <th style="text-align:left">Ciudad</th>
+          <th>📅 Ingreso</th>
           <th>📞 WhatsApp</th>
           <th>🥉 Básico</th>
           <th>⭐ Avanzado</th>
@@ -738,65 +789,65 @@
 <script>
 // ==================== DATOS DE LEADS ====================
 const leads = [
-  {ciudad:"Maschwitz", telefono:"+5491125823322", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Maschwitz", telefono:"+5493484703474", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491158439686", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491165868458", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491158052480", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491138960430", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491157819712", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491165488019", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491151547007", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491130586118", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491125996241", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491130632204", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Benavidez", telefono:"+5491136192065", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5493487400960", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5493487707238", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5493489597340", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5493487545942", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5493487568924", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5493487713233", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5493487737489", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5493487224644", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Zárate", telefono:"+5491122519026", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Baradero", telefono:"+5493329605124", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Baradero", telefono:"+5493329699375", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Baradero", telefono:"+5493329390908", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Baradero", telefono:"+5493329418034", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Baradero", telefono:"+5493329486362", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Baradero", telefono:"+5493329633273", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Baradero", telefono:"+5493329603803", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Baradero", telefono:"+5493329623608", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Tanti", telefono:"+5493516482186", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Villa Santa Cruz del Lago", telefono:"+5493516311288", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Santa María de Punilla", telefono:"+5493541480535", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Santa María de Punilla", telefono:"+5493516451085", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Villa María", telefono:"+5493534610104", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Villa María", telefono:"+5493513824798", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Villa María", telefono:"+5493541624114", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Villa María", telefono:"+5491141999699", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Villa María", telefono:"+5493415717782", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Villa María", telefono:"+5493541315834", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Villa María", telefono:"+5493548572947", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Capilla del Monte", telefono:"+5493548560346", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994515297", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994467649", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994452956", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994026924", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994430926", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492995375781", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994435378", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994588277", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994451200", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492995343094", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492995078237", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492996015790", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994428341", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994426016", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994486436", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492996299663", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Neuquén", telefono:"+5492994657106", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Maschwitz", telefono:"+5491125823322", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Maschwitz", telefono:"+5493484703474", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491158439686", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491165868458", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491158052480", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491138960430", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491157819712", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491165488019", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491151547007", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491130586118", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491125996241", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491130632204", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491136192065", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487400960", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487707238", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493489597340", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487545942", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487568924", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487713233", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487737489", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487224644", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5491122519026", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329605124", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329699375", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329390908", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329418034", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329486362", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329633273", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329603803", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329623608", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tanti", telefono:"+5493516482186", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa Santa Cruz del Lago", telefono:"+5493516311288", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa María de Punilla", telefono:"+5493541480535", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa María de Punilla", telefono:"+5493516451085", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493534610104", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493513824798", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493541624114", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5491141999699", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493415717782", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493541315834", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493548572947", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Capilla del Monte", telefono:"+5493548560346", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994515297", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994467649", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994452956", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994026924", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994430926", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995375781", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994435378", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994588277", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994451200", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995343094", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995078237", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996015790", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994428341", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994426016", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994486436", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996299663", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994657106", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -811,31 +862,25 @@ const PRECIO_SKILL = 40;
 
 // 1. Mensaje Principal (Contacto Inicial)
 function generarMensajeWA(idx) {
-  const lead = leads[idx];
-  
   let msg = `👋 ¡Hola! Buenas!!. Somos NEXO-ART. Te ayudamos a convertir tu catálogo actual en un canal de ventas online.\n\n🚀 ¿Qué vas a lograr con tu tienda online?\n* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp para que solo tengas que cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil de Google Maps para que los clientes de tu zona te encuentren primeros a vos y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n* Chau mensajes repetitivos: Ahorrá el tiempo de responder constantemente "¿Tenés stock?" o "¿Cuánto cuesta?".\n* Aumentá tus ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes perdidas. Convertí ese tiempo en despachos y ventas reales.\n* Atención profesional: Brindale a tu cliente la rapidez que espera al comprar repuestos para su vehículo. Te devuelvo lo más valioso: tiempo para hacer crecer tu negocio.\n\n🔗 Mirá un ejemplo de cómo se vería tu catálogo online acá: https://fc-racing.vercel.app/`;
-
   return encodeURIComponent(msg);
 }
 
 // 2. Respuesta: SI (Interesado)
-function generarMensajeSI(idx) {
-  const lead = leads[idx];
+function generarMensajeSI() {
   let msg = `Perfecto 👍\n\nLa idea no es simplemente hacerles una página web.\n\nLa propuesta es transformar su catálogo actual en un canal de ventas online:\n\n🔎 Buscador de productos\n📂 Categorías y filtros\n📸 Fichas con imágenes y características\n💰 Precios y stock\n🛒 Carrito y pedido\n📱 Adaptado a celular\n💬 Integración con WhatsApp\n🚀 Diseño profesional y rápido\n\nAdemás, podemos trabajar con su catálogo actual para organizar los productos y facilitar muchísimo la búsqueda.\n\nSi me pasás el logo y, si tienen, el catálogo/listado de productos, puedo mostrarte cómo quedaría aplicado a su negocio.`;
   return encodeURIComponent(msg);
 }
 
 // 3. Respuesta: CUANTO SALE? (Precio)
-function generarMensajePRECIO(idx) {
-  const lead = leads[idx];
+function generarMensajePRECIO() {
   let msg = `Tenemos diferentes alternativas según lo que necesite el negocio.\n\nPara un e-commerce completo, el plan Premium tiene un valor de $430.000, más US$60 mensuales por mantenimiento: actualizaciones, productos, soporte, backups, cambios, optimizacion. mejoras.\n\nIncluye la estructura de tienda online, catálogo, categorías, buscador, filtros, fichas de productos, carrito, adaptación móvil y las herramientas necesarias para convertir el catálogo en un canal de ventas.\n\nSi querés, primero te muestro una demo para que veas exactamente qué recibirías antes de decidir.`;
   return encodeURIComponent(msg);
 }
 
 // 4. Respuesta: NO INTERESA (Objeción)
-function generarMensajeNO(idx) {
-  const lead = leads[idx];
-  let msg = `Totalmente, ningún problema 👍\n\nTe hago una última pregunta:\n\nSi pudieras hacer que un cliente encuentre un producto de tu catálogo por código, nombre o categoría desde el celular, sin tener que preguntarte todo por WhatsApp, ¿eso te ayudaría a ahorrar tiempo y recibir más pedidos?\n\nSi te interesa, te puedo mostrar cómo funcionaría específicamente para ${lead.ciudad}.`;
+function generarMensajeNO(ciudad) {
+  let msg = `Totalmente, ningún problema 👍\n\nTe hago una última pregunta:\n\nSi pudieras hacer que un cliente encuentre un producto de tu catálogo por código, nombre o categoría desde el celular, sin tener que preguntarte todo por WhatsApp, ¿eso te ayudaría a ahorrar tiempo y recibir más pedidos?\n\nSi te interesa, te puedo mostrar cómo funcionaría específicamente para ${ciudad}.`;
   return encodeURIComponent(msg);
 }
 
@@ -903,15 +948,19 @@ function renderTable() {
     </a>`;
 
     // Botones de Respuesta Rápida
-    const msgSi = generarMensajeSI(idx);
-    const msgPrecio = generarMensajePRECIO(idx);
-    const msgNo = generarMensajeNO(idx);
+    const msgSi = generarMensajeSI();
+    const msgPrecio = generarMensajePRECIO();
+    const msgNo = generarMensajeNO(item.ciudad);
 
     const replyButtons = `
       <a href="https://wa.me/${item.telefono}?text=${msgSi}" target="_blank" class="reply-btn yes" title="Si contesta SI">✅ Si</a>
       <a href="https://wa.me/${item.telefono}?text=${msgPrecio}" target="_blank" class="reply-btn price" title="Si pregunta PRECIO">💰 Precio</a>
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
+
+    // Determinar si es lead nuevo (hoy)
+    const isNew = item.fecha === "17/09/2026";
+    const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
     if (item.planSeleccionado) {
@@ -926,7 +975,8 @@ function renderTable() {
 
     tr.innerHTML = `
       <td class="checkbox-cell"><input type="checkbox" ${item.potential?'checked':''} onchange="togglePotential(${idx})"></td>
-      <td><span class="city-badge ${cityClass}">${cityIcon} ${item.ciudad}</span></td>
+      <td><span class="city-badge ${cityClass}" data-phone="${item.telefono}">${cityIcon} ${item.ciudad}</span></td>
+      <td><span class="${dateClass}">${item.fecha}</span></td>
       <td>${waLink}</td>
       <td><button class="plan-btn basic ${item.planSeleccionado==='basico'?'active':''}" onclick="selectPlan(${idx},'basico')">🥉 $98k</button></td>
       <td><button class="plan-btn advanced ${item.planSeleccionado==='avanzado'?'active':''}" onclick="selectPlan(${idx},'avanzado')">⭐ $160k</button></td>
