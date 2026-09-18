@@ -620,7 +620,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Viernes, 18 Septiembre 2026</div>
+  <div class="date">📅 Sábado, 19 Septiembre 2026</div>
 </div>
 
 <!-- Exchange Rate Input -->
@@ -876,7 +876,7 @@ const leads = [
   {ciudad:"Neuquén", telefono:"+5492994486436", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Neuquén", telefono:"+5492996299663", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Neuquén", telefono:"+5492994657106", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS PARAGUAY - 18/09/2026
+  // LEADS PARAGUAY - 18/09/2026
   {ciudad:"Luque 🇵🇾", telefono:"+595993545398", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Luque 🇵🇾", telefono:"+595981272372", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Luque 🇵🇾", telefono:"+595961953526", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
@@ -890,7 +890,32 @@ const leads = [
   {ciudad:"San Lorenzo 🇵🇾", telefono:"+595981370641", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"San Lorenzo 🇵🇾", telefono:"+595982267470", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"San Lorenzo 🇵🇾", telefono:"+595981930710", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595985253353", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595985253353", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS SANTA CRUZ - 19/09/2026
+  {ciudad:"Santa Cruz", telefono:"+5492966767672", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804818960", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804352949", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804660484", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804597437", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804398995", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804193677", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804650430", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492805092242", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804589193", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492945684931", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS NEUQUÉN - 19/09/2026
+  {ciudad:"Neuquén", telefono:"+5492995723124", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995200323", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996313137", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996270961", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995771696", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994476241", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492236725623", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996744540", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995087519", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994244580", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995966613", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994244248", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1006,8 +1031,8 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    // Determinar si es lead nuevo (hoy)
-    const isNew = item.fecha === "18/09/2026";
+    // Determinar si es lead nuevo (hoy o ayer)
+    const isNew = (item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
