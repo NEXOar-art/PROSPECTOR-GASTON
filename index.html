@@ -535,4 +535,583 @@
     color: #E63946;
     border-color: #E63946;
   }
-  .reply-btn.no:hover { background
+  .reply-btn.no:hover { background: #E63946; color: white; }
+
+  .scroll-hint {
+    display: none;
+    text-align: center;
+    padding: 8px;
+    font-size: 11px;
+    color: #95a5a6;
+    background: #f8fafc;
+    border-bottom: 1px solid #e0e6ed;
+  }
+
+  .hidden { display: none; }
+
+  @media (max-width: 1024px) {
+    .total-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    body { padding: 8px; }
+    .header { padding: 16px; }
+    .header h1 { font-size: 18px; }
+    .header .subtitle { font-size: 12px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .kpi-card { padding: 12px; }
+    .kpi-value { font-size: 18px; }
+    .kpi-label { font-size: 9px; }
+    .total-card { padding: 16px; }
+    .total-card-header h2 { font-size: 15px; }
+    .total-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .total-item { padding: 10px; }
+    .total-item .value { font-size: 16px; }
+    .total-item.highlight .value { font-size: 18px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .scroll-hint { display: block; }
+    .exchange-rate-container {
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+    }
+    .exchange-rate-container .label-group { justify-content: center; }
+    .info-card { padding: 14px; }
+  }
+  @media (max-width: 480px) {
+    body { padding: 6px; }
+    .header h1 { font-size: 16px; }
+    .header .subtitle { font-size: 11px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .kpi-card { padding: 10px; border-left-width: 3px; }
+    .kpi-value { font-size: 16px; }
+    .kpi-sub { font-size: 10px; }
+    .total-card { padding: 14px; border-radius: 14px; }
+    .total-card-header h2 { font-size: 13px; }
+    .total-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+    .total-item .value { font-size: 14px; }
+    .total-item .label { font-size: 9px; }
+    .total-item.highlight .value { font-size: 16px; }
+    .exchange-rate-container input { width: 90px; font-size: 14px; }
+    .table-header h3 { font-size: 12px; }
+    table { min-width: 950px; font-size: 10px; }
+    th { font-size: 8px; padding: 6px 4px; }
+    td { padding: 6px 4px; }
+    .wa-link { padding: 4px 6px; font-size: 9px; }
+    .plan-btn { padding: 3px 5px; font-size: 8px; }
+    .skill-btn { padding: 3px 5px; font-size: 8px; }
+    .potential-btn { padding: 3px 6px; font-size: 8px; }
+    .price-display { font-size: 9px; padding: 2px 6px; min-width: 60px; }
+    .city-badge { font-size: 9px; padding: 2px 6px; }
+    .reply-btn { padding: 3px 6px; font-size: 8px; }
+    .date-cell { font-size: 9px; padding: 3px 6px; }
+  }
+  @media (max-width: 360px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .total-grid { grid-template-columns: 1fr; }
+    .kpi-value { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🇦🇷🇵🇾 Dashboard Leads Zonas Varias + Paraguay | NEXO-ART</h1>
+  <div class="subtitle">
+    <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
+  </div>
+  <div class="date">📅 Lunes, 21 Septiembre 2026</div>
+</div>
+
+<!-- Exchange Rate Input -->
+<div class="exchange-rate-container">
+  <div class="label-group">
+    <div class="icon">💱</div>
+    <div>
+      <div class="title">Tipo de Cambio Dólar/Peso del Día</div>
+      <div class="sub">Actualizá el valor para calcular totales en ARS</div>
+    </div>
+  </div>
+  <div class="label-group">
+    <div class="currency-display">1 USD =</div>
+    <input type="number" id="exchangeRate" value="1500" min="1" step="0.01" oninput="updateKPIs()">
+    <div class="currency-display">ARS</div>
+  </div>
+</div>
+
+<!-- KPI Cards -->
+<div class="kpi-grid">
+  <div class="kpi-card blue">
+    <div class="kpi-label">Total Leads</div>
+    <div class="kpi-value" id="kpiTotalLeads">0</div>
+    <div class="kpi-sub">Zonas Varias + Paraguay</div>
+  </div>
+  <div class="kpi-card green">
+    <div class="kpi-label">Potenciales Clientes</div>
+    <div class="kpi-value" id="kpiPotenciales">0</div>
+    <div class="kpi-sub">Marcados con ✓</div>
+  </div>
+  <div class="kpi-card orange">
+    <div class="kpi-label">Ingresos Potenciales</div>
+    <div class="kpi-value" id="kpiIngresos">$0</div>
+    <div class="kpi-sub">ARS por servicios</div>
+  </div>
+  <div class="kpi-card pink">
+    <div class="kpi-label">Conversión</div>
+    <div class="kpi-value" id="kpiConversion">0%</div>
+    <div class="kpi-sub">Potenciales / Total</div>
+  </div>
+  <div class="kpi-card purple">
+    <div class="kpi-label">Mantenimiento Mensual</div>
+    <div class="kpi-value" id="kpiMantenimiento">$0</div>
+    <div class="kpi-sub">USD recurrente</div>
+  </div>
+  <div class="kpi-card red">
+    <div class="kpi-label">Skills Activados</div>
+    <div class="kpi-value" id="kpiSkills">$0</div>
+    <div class="kpi-sub">USD por dashboards</div>
+  </div>
+</div>
+
+<!-- TOTAL CARD -->
+<div class="total-card">
+  <div class="total-card-header">
+    <h2>💎 TOTAL GENERAL (Plan + Skill + Mantenimiento)</h2>
+    <div class="badge">📊 Tiempo real</div>
+  </div>
+  <div class="total-grid">
+    <div class="total-item">
+      <div class="label">💵 Total en USD</div>
+      <div class="value" id="totalUSD">$0</div>
+      <div class="detail">Skill + Mantenimiento</div>
+    </div>
+    <div class="total-item">
+      <div class="label">💰 Total Único (ARS)</div>
+      <div class="value" id="totalUnicoARS">$0</div>
+      <div class="detail">Planes + Skills convertidos</div>
+    </div>
+    <div class="total-item">
+      <div class="label">🔄 Total Mensual (ARS)</div>
+      <div class="value" id="totalMensualARS">$0</div>
+      <div class="detail">Mantenimiento recurrente</div>
+    </div>
+    <div class="total-item highlight">
+      <div class="label">🏆 TOTAL 1er MES (ARS)</div>
+      <div class="value" id="totalPrimerMesARS">$0</div>
+      <div class="detail">Único + Mensual del 1er mes</div>
+    </div>
+  </div>
+</div>
+
+<!-- Info Card -->
+<div class="info-card">
+  <h3>🎯 Beneficios Clave para el Negocio</h3>
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <strong>🛒 E-commerce y Carrito de Compras 24/7</strong>
+      Los clientes pueden elegir y comprar mediante el carrito de compras, con integración automática a WhatsApp del negocio, donde llegará con todos los datos del cliente. Trabaja 24/7 ya que a cualquier horario se puede hacer la operación, este e-commerce es una extensión del negocio. También al tener los datos del cliente se puede hacer e-mail marketing con los nuevos productos o destacados.
+    </div>
+    <div class="benefit-item">
+      <strong>📍 Optimización Google Maps</strong>
+      Mayor visibilidad y confianza en Google Maps y Business Profile para atraer nuevos clientes a tu zona.
+    </div>
+    <div class="benefit-item">
+      <strong>⚙️ Automatización y orden</strong>
+      Menos mensajes repetitivos, más tiempo para atender y crecer. El sistema trabaja por vos 24/7.
+    </div>
+    <div class="benefit-item">
+      <strong>📱 Diseño responsive y profesional</strong>
+      Sitios que se adaptan perfectamente a cualquier dispositivo (celular, tablet, PC).
+    </div>
+  </div>
+
+  <h3 style="margin-top: 14px;">🇦🇷 Planes en Argentina (Precios Actualizados)</h3>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="plan-name">🚀 PLAN STARTER</div>
+      <div class="plan-price">$120.000 ARS</div>
+      <div class="plan-maintenance">Pago único</div>
+      <div class="plan-desc">Landing / web institucional.</div>
+    </div>
+    <div class="plan-card popular">
+      <div class="plan-name">💼 PLAN BUSINESS</div>
+      <div class="plan-price">$230.000 ARS</div>
+      <div class="plan-maintenance">+ US$30/mes mantenimiento</div>
+      <div class="plan-desc">Web + catálogo + WhatsApp + Mantenimiento.</div>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">🛒 PLAN E-COMMERCE</div>
+      <div class="plan-price">$430.000 ARS</div>
+      <div class="plan-maintenance">+ US$60/mes mantenimiento</div>
+      <div class="plan-desc" style="font-size: 10px; line-height: 1.4; text-align: left;">
+        <strong>Incluye:</strong> diseño, catálogo, categorías, buscador, filtros, fichas de producto, carrito, checkout, WhatsApp, responsive, SEO básico, carga inicial de productos, analítica, configuración comercial.<br><br>
+        <strong>🔄 MANTENIMIENTO:</strong> Podés convertirlo en una suscripción de: mantenimiento, actualizaciones, productos, soporte, backups, cambios, optimización, mejoras.
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 24px;">🌎 Planes en Latinoamérica (Precios Actualizados)</h3>
+  <div class="pricing-grid">
+    <div class="plan-card">
+      <div class="plan-name">🚀 PLAN STARTER</div>
+      <div class="plan-price">US$90</div>
+      <div class="plan-maintenance">Pago único</div>
+      <div class="plan-desc">Landing / web institucional.</div>
+    </div>
+    <div class="plan-card popular">
+      <div class="plan-name">💼 PLAN BUSINESS</div>
+      <div class="plan-price">US$180</div>
+      <div class="plan-maintenance">+ US$30/mes mantenimiento</div>
+      <div class="plan-desc">Web + catálogo + WhatsApp + Mantenimiento.</div>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">🛒 PLAN E-COMMERCE</div>
+      <div class="plan-price">US$300</div>
+      <div class="plan-maintenance">+ US$60/mes mantenimiento</div>
+      <div class="plan-desc" style="font-size: 10px; line-height: 1.4; text-align: left;">
+        <strong>Incluye:</strong> diseño, catálogo, categorías, buscador, filtros, fichas de producto, carrito, checkout, WhatsApp, responsive, SEO básico, carga inicial de productos, analítica, configuración comercial.<br><br>
+        <strong>🔄 MANTENIMIENTO:</strong> Podés convertirlo en una suscripción de: mantenimiento, actualizaciones, productos, soporte, backups, cambios, optimización, mejoras.
+      </div>
+    </div>
+  </div>
+
+  <div class="addon" style="margin-top: 16px;">
+    📊 <strong>Skill Tablero de Control específico para restaurantes:</strong> + 40 USD por única vez (Opcional) — Se suma al plan elegido.
+  </div>
+  <div class="payment-methods">
+    <div>💳 <strong>Métodos de Pago:</strong></div>
+    <div>🟣 Mercado Pago</div>
+    <div>🏦 Transferencia bancaria</div>
+  </div>
+</div>
+
+<!-- Table of Leads -->
+<div class="table-container">
+  <div class="table-header">
+    <h3>🔧 Leads de Casas de Repuestos - Zonas Varias + Paraguay</h3>
+    <span class="table-count" id="countLeads">0 negocios</span>
+  </div>
+  <div class="scroll-hint">👉 Deslizá horizontalmente para ver todas las columnas</div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th class="checkbox-cell">✓</th>
+          <th style="text-align:left">Ciudad</th>
+          <th>📅 Ingreso</th>
+          <th>📞 WhatsApp</th>
+          <th>🚀 Starter</th>
+          <th>💼 Business</th>
+          <th>🛒 E-Commerce</th>
+          <th>📊 Skill</th>
+          <th>💰 Precio</th>
+          <th>🎯 Potencial</th>
+          <th>Respuestas Rápidas</th>
+        </tr>
+      </thead>
+      <tbody id="tbodyLeads"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+// ==================== DATOS DE LEADS ====================
+const leads = [
+  {ciudad:"Maschwitz", telefono:"+5491125823322", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Maschwitz", telefono:"+5493484703474", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491158439686", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491165868458", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491158052480", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491138960430", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491157819712", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491165488019", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491151547007", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491130586118", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491125996241", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491130632204", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Benavidez", telefono:"+5491136192065", fecha:"15/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487400960", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487707238", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493489597340", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487545942", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487568924", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487713233", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487737489", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5493487224644", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Zárate", telefono:"+5491122519026", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329605124", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329699375", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329390908", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329418034", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329486362", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329633273", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329603803", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Baradero", telefono:"+5493329623608", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tanti", telefono:"+5493516482186", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa Santa Cruz del Lago", telefono:"+5493516311288", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa María de Punilla", telefono:"+5493541480535", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa María de Punilla", telefono:"+5493516451085", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493534610104", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493513824798", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493541624114", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5491141999699", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493415717782", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493541315834", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Villa María", telefono:"+5493548572947", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Capilla del Monte", telefono:"+5493548560346", fecha:"16/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994515297", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994467649", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994452956", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994026924", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994430926", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995375781", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994435378", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994588277", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994451200", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995343094", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995078237", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996015790", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994428341", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994426016", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994486436", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996299663", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994657106", fecha:"17/09/2026", planSeleccionado:null, skill:false, potential:false},
+  // LEADS PARAGUAY - 18/09/2026
+  {ciudad:"Luque 🇵🇾", telefono:"+595993545398", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Luque 🇵🇾", telefono:"+595981272372", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Luque 🇵🇾", telefono:"+595961953526", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Luque 🇵🇾", telefono:"+595983254508", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Luque 🇵🇾", telefono:"+595982967849", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595992314322", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595987208234", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595984399603", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595213289776", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595985551654", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595981370641", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595982267470", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595981930710", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Lorenzo 🇵🇾", telefono:"+595985253353", fecha:"18/09/2026", planSeleccionado:null, skill:false, potential:false},
+  // LEADS SANTA CRUZ Y NEUQUÉN EXTRA - 19/09/2026
+  {ciudad:"Santa Cruz", telefono:"+5492966767672", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804818960", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804352949", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804660484", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804597437", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804398995", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804193677", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804650430", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492805092242", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492804589193", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Santa Cruz", telefono:"+5492945684931", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995723124", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995200323", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996313137", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996270961", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995771696", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994476241", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492236725623", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492996744540", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995087519", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994244580", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492995966613", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Neuquén", telefono:"+5492994244248", fecha:"19/09/2026", planSeleccionado:null, skill:false, potential:false},
+  // LEADS LA PAMPA Y MENDOZA - 20/09/2026
+  {ciudad:"La Pampa", telefono:"+5492302334382", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954512322", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954811662", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954546460", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954437741", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954217554", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954740512", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954456346", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954403099", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"La Pampa", telefono:"+5492954587733", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492625403209", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492614685803", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492634937180", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492631548694", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492634549857", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492617224140", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492617527417", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492615150490", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492614310307", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492613820061", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492614323954", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mendoza", telefono:"+5492614307191", fecha:"20/09/2026", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS ZONA NORTE/OESTE/CINTURA - 21/09/2026
+  {ciudad:"José C. Paz", telefono:"+5491171341234", fecha:"21/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"General Rodríguez", telefono:"+5491131281399", fecha:"21/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Buenos Aires", telefono:"+5491123818464", fecha:"21/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Don Torcuato", telefono:"+5491123818464", fecha:"21/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Camino de Cintura", telefono:"+5491123818464", fecha:"21/09/2026", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pacheco", telefono:"+5491133636631", fecha:"21/09/2026", planSeleccionado:null, skill:false, potential:false}
+];
+
+// ==================== PRECIOS ====================
+const PLANES = {
+  starter:   { nombre:"Starter",   precio:120000,  mantenimiento:0,  emoji:"🚀" },
+  business:  { nombre:"Business",  precio:230000,  mantenimiento:30, emoji:"💼" },
+  ecommerce: { nombre:"E-Commerce",precio:430000,  mantenimiento:60, emoji:"🛒" }
+};
+const PRECIO_SKILL = 40;
+
+// ==================== GENERAR MENSAJES WHATSAPP ====================
+
+// 1. Mensaje Principal (Contacto Inicial)
+function generarMensajeWA(idx) {
+  let msg = `👋 ¡Hola! Buenas!!. Somos NEXO-ART. Te ayudamos a convertir tu catálogo actual en un canal de ventas online.\n\n🚀 ¿Qué vas a lograr con tu tienda online?\n* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp para que solo tengas que cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil de Google Maps para que los clientes de tu zona te encuentren primeros a vos y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n* Chau mensajes repetitivos: Ahorrá el tiempo de responder constantemente "¿Tenés stock?" o "¿Cuánto cuesta?".\n* Aumentá tus ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes perdidas. Convertí ese tiempo en despachos y ventas reales.\n* Atención profesional: Brindale a tu cliente la rapidez que espera al comprar repuestos para su vehículo. Te devuelvo lo más valioso: tiempo para hacer crecer tu negocio.\n\n🔗 Mirá un ejemplo de cómo se vería tu catálogo online acá: https://fc-racing.vercel.app/`;
+  return encodeURIComponent(msg);
+}
+
+// 2. Respuesta: SI (Interesado)
+function generarMensajeSI() {
+  let msg = `Perfecto 👍\n\nLa idea no es simplemente hacerles una página web.\n\nLa propuesta es transformar su catálogo actual en un canal de ventas online:\n\n🔎 Buscador de productos\n📂 Categorías y filtros\n📸 Fichas con imágenes y características\n💰 Precios y stock\n🛒 Carrito y pedido\n📱 Adaptado a celular\n💬 Integración con WhatsApp\n🚀 Diseño profesional y rápido\n\nAdemás, podemos trabajar con su catálogo actual para organizar los productos y facilitar muchísimo la búsqueda.\n\nSi me pasás el logo y, si tienen, el catálogo/listado de productos, puedo mostrarte cómo quedaría aplicado a su negocio.`;
+  return encodeURIComponent(msg);
+}
+
+// 3. Respuesta: CUANTO SALE? (Precio)
+function generarMensajePRECIO() {
+  let msg = `Tenemos diferentes alternativas según lo que necesite el negocio.\n\nPara un e-commerce completo, el plan Premium tiene un valor de $430.000, más US$60 mensuales por mantenimiento: actualizaciones, productos, soporte, backups, cambios, optimizacion. mejoras.\n\nIncluye la estructura de tienda online, catálogo, categorías, buscador, filtros, fichas de productos, carrito, adaptación móvil y las herramientas necesarias para convertir el catálogo en un canal de ventas.\n\nSi querés, primero te muestro una demo para que veas exactamente qué recibirías antes de decidir.`;
+  return encodeURIComponent(msg);
+}
+
+// 4. Respuesta: NO INTERESA (Objeción)
+function generarMensajeNO(ciudad) {
+  let msg = `Totalmente, ningún problema 👍\n\nTe hago una última pregunta:\n\nSi pudieras hacer que un cliente encuentre un producto de tu catálogo por código, nombre o categoría desde el celular, sin tener que preguntarte todo por WhatsApp, ¿eso te ayudaría a ahorrar tiempo y recibir más pedidos?\n\nSi te interesa, te puedo mostrar cómo funcionaría específicamente para ${ciudad}.`;
+  return encodeURIComponent(msg);
+}
+
+// ==================== INIT ====================
+function init() {
+  renderAll();
+}
+
+function renderAll() {
+  renderTable();
+  updateKPIs();
+}
+
+function updateKPIs() {
+  const totalLeads = leads.length;
+  const potenciales = leads.filter(l => l.potential).length;
+  const tc = parseFloat(document.getElementById('exchangeRate').value) || 0;
+
+  let ingresos = 0, mantenimiento = 0, ingresosSkills = 0;
+  leads.forEach(l => {
+    if (l.potential && l.planSeleccionado) {
+      ingresos += PLANES[l.planSeleccionado].precio;
+      mantenimiento += PLANES[l.planSeleccionado].mantenimiento;
+    }
+    if (l.potential && l.skill) ingresosSkills += PRECIO_SKILL;
+  });
+
+  const conversion = totalLeads > 0 ? ((potenciales/totalLeads)*100).toFixed(1) : 0;
+
+  document.getElementById('kpiTotalLeads').textContent = totalLeads;
+  document.getElementById('kpiPotenciales').textContent = potenciales;
+  document.getElementById('kpiIngresos').textContent = '$' + ingresos.toLocaleString('es-AR');
+  document.getElementById('kpiConversion').textContent = conversion + '%';
+  document.getElementById('kpiMantenimiento').textContent = '$' + mantenimiento + ' USD';
+  document.getElementById('kpiSkills').textContent = '$' + ingresosSkills + ' USD';
+  document.getElementById('countLeads').textContent = totalLeads + ' negocios';
+
+  const totalUSD = ingresosSkills + mantenimiento;
+  const totalUnicoARS = ingresos + (ingresosSkills * tc);
+  const totalMensualARS = mantenimiento * tc;
+  const totalPrimerMesARS = totalUnicoARS + totalMensualARS;
+
+  document.getElementById('totalUSD').textContent = '$' + totalUSD.toLocaleString('en-US') + ' USD';
+  document.getElementById('totalUnicoARS').textContent = '$' + Math.round(totalUnicoARS).toLocaleString('es-AR');
+  document.getElementById('totalMensualARS').textContent = '$' + Math.round(totalMensualARS).toLocaleString('es-AR');
+  document.getElementById('totalPrimerMesARS').textContent = '$' + Math.round(totalPrimerMesARS).toLocaleString('es-AR');
+}
+
+function renderTable() {
+  const tbody = document.getElementById('tbodyLeads');
+  tbody.innerHTML = '';
+
+  leads.forEach((item, idx) => {
+    const tr = document.createElement('tr');
+    if (item.potential) tr.classList.add('potential');
+
+    // Determinar clase de ciudad (Paraguay vs Argentina)
+    let cityClass = 'city-lujan';
+    let cityIcon = '🔧';
+    if (item.ciudad.includes('🇵🇾')) {
+      cityClass = 'city-paraguay';
+      cityIcon = '🇵🇾';
+    }
+
+    // Botón Principal
+    const waMsg = generarMensajeWA(idx);
+    const waLink = `<a href="https://wa.me/${item.telefono}?text=${waMsg}" target="_blank" class="wa-link">
+      <svg class="wa-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar
+    </a>`;
+
+    // Botones de Respuesta Rápida
+    const msgSi = generarMensajeSI();
+    const msgPrecio = generarMensajePRECIO();
+    const msgNo = generarMensajeNO(item.ciudad);
+
+    const replyButtons = `
+      <a href="https://wa.me/${item.telefono}?text=${msgSi}" target="_blank" class="reply-btn yes" title="Si contesta SI">✅ Si</a>
+      <a href="https://wa.me/${item.telefono}?text=${msgPrecio}" target="_blank" class="reply-btn price" title="Si pregunta PRECIO">💰 Precio</a>
+      <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
+    `;
+
+    // Determinar si es lead nuevo (hoy o últimos días)
+    const isNew = (item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const dateClass = isNew ? 'date-cell new' : 'date-cell';
+
+    let priceDisplay = '<span class="price-display">Sin plan</span>';
+    if (item.planSeleccionado) {
+      const plan = PLANES[item.planSeleccionado];
+      const mantText = plan.mantenimiento > 0 ? ` + $${plan.mantenimiento}/mes` : ' + $0/mes';
+      const skillText = item.skill ? ` + Skill $${PRECIO_SKILL}` : '';
+      const hasSkillClass = item.skill ? ' has-skill' : '';
+      priceDisplay = `<span class="price-display ${item.planSeleccionado}${hasSkillClass}">$${plan.precio.toLocaleString('es-AR')}${mantText}${skillText}</span>`;
+    } else if (item.skill) {
+      priceDisplay = `<span class="price-display has-skill" style="background:#f0e6ff;color:#9D4EDD;">Solo Skill $${PRECIO_SKILL}</span>`;
+    }
+
+    tr.innerHTML = `
+      <td class="checkbox-cell"><input type="checkbox" ${item.potential?'checked':''} onchange="togglePotential(${idx})"></td>
+      <td><span class="city-badge ${cityClass}" data-phone="${item.telefono}">${cityIcon} ${item.ciudad}</span></td>
+      <td><span class="${dateClass}">${item.fecha}</span></td>
+      <td>${waLink}</td>
+      <td><button class="plan-btn starter ${item.planSeleccionado==='starter'?'active':''}" onclick="selectPlan(${idx},'starter')">🚀 $120k</button></td>
+      <td><button class="plan-btn business ${item.planSeleccionado==='business'?'active':''}" onclick="selectPlan(${idx},'business')">💼 $230k</button></td>
+      <td><button class="plan-btn ecommerce ${item.planSeleccionado==='ecommerce'?'active':''}" onclick="selectPlan(${idx},'ecommerce')">🛒 $430k</button></td>
+      <td><button class="skill-btn ${item.skill?'active':''}" onclick="toggleSkill(${idx})">📊 ${item.skill?'✓ +$40':'Agregar'}</button></td>
+      <td>${priceDisplay}</td>
+      <td><button class="potential-btn ${item.potential?'active':''}" onclick="togglePotential(${idx})">${item.potential?'✓ Potencial':'Marcar'}</button></td>
+      <td>${replyButtons}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function selectPlan(idx, plan) {
+  if (leads[idx].planSeleccionado === plan) {
+    leads[idx].planSeleccionado = null;
+  } else {
+    leads[idx].planSeleccionado = plan;
+  }
+  renderAll();
+}
+
+function toggleSkill(idx) {
+  leads[idx].skill = !leads[idx].skill;
+  renderAll();
+}
+
+function togglePotential(idx) {
+  leads[idx].potential = !leads[idx].potential;
+  renderAll();
+}
+
+init();
+</script>
+</body>
+</html>
