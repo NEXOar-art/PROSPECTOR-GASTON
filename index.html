@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Dashboard Leads Zonas Varias + Paraguay | NEXO-ART</title>
+<title>Dashboard Leads Zonas Varias + Paraguay + Chile | NEXO-ART</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
   body {
@@ -29,6 +29,30 @@
     border-radius: 20px;
     font-size: 12px;
     margin-top: 10px;
+    backdrop-filter: blur(10px);
+  }
+
+  /* Contador Superior */
+  .leads-counter-bar {
+    background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,119,182,0.25);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .leads-counter-bar .number {
+    background: rgba(255,255,255,0.25);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 800;
     backdrop-filter: blur(10px);
   }
 
@@ -577,6 +601,8 @@
     }
     .exchange-rate-container .label-group { justify-content: center; }
     .info-card { padding: 14px; }
+    .leads-counter-bar { font-size: 14px; padding: 12px 16px; }
+    .leads-counter-bar .number { font-size: 18px; padding: 4px 12px; }
   }
   @media (max-width: 480px) {
     body { padding: 6px; }
@@ -616,11 +642,17 @@
 <body>
 
 <div class="header">
-  <h1>🇦🇷🇵🇾 Dashboard Leads Zonas Varias + Paraguay | NEXO-ART</h1>
+  <h1>🇦🇷🇵🇾🇨🇱 Dashboard Leads Zonas Varias + Paraguay + Chile | NEXO-ART</h1>
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Martes, 22 Septiembre 2026</div>
+  <div class="date">📅 Miércoles, 23 Septiembre 2026</div>
+</div>
+
+<!-- Contador Superior de Leads -->
+<div class="leads-counter-bar">
+  <span>📋 Total Leads en Lista:</span>
+  <span class="number" id="topLeadsCounter">0</span>
 </div>
 
 <!-- Exchange Rate Input -->
@@ -644,7 +676,7 @@
   <div class="kpi-card blue">
     <div class="kpi-label">Total Leads</div>
     <div class="kpi-value" id="kpiTotalLeads">0</div>
-    <div class="kpi-sub">Zonas Varias + Paraguay</div>
+    <div class="kpi-sub">Zonas Varias + Paraguay + Chile</div>
   </div>
   <div class="kpi-card green">
     <div class="kpi-label">Potenciales Clientes</div>
@@ -755,12 +787,12 @@
     <div class="plan-card">
       <div class="plan-name">🚀 PLAN STARTER</div>
       <div class="plan-price">US$90</div>
-      <div class="plan-maintenance">Pago único</div>
+      <div class="plan-maintenance">+ US$20/mes mantenimiento</div>
       <div class="plan-desc">Landing / web institucional.</div>
     </div>
     <div class="plan-card popular">
       <div class="plan-name">💼 PLAN BUSINESS</div>
-      <div class="plan-price">US$180</div>
+      <div class="plan-price">US$120</div>
       <div class="plan-maintenance">+ US$30/mes mantenimiento</div>
       <div class="plan-desc">Web + catálogo + WhatsApp + Mantenimiento.</div>
     </div>
@@ -788,7 +820,7 @@
 <!-- Table of Leads -->
 <div class="table-container">
   <div class="table-header">
-    <h3>🔧 Leads de Negocios (Repuestos y Detailing) - Zonas Varias + Paraguay</h3>
+    <h3>🔧 Leads de Negocios (Repuestos y Detailing) - Zonas Varias + Paraguay + Chile</h3>
     <span class="table-count" id="countLeads">0 negocios</span>
   </div>
   <div class="scroll-hint">👉 Deslizá horizontalmente para ver todas las columnas</div>
@@ -941,7 +973,6 @@ const leads = [
   {ciudad:"Don Torcuato", telefono:"+5491123818464", fecha:"21/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Camino de Cintura", telefono:"+5491123818464", fecha:"21/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Pacheco", telefono:"+5491133636631", fecha:"21/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS DETAILING - 22/09/2026
   {ciudad:"Zárate", telefono:"+5493487317338", fecha:"22/09/2026", servicio:"detailing", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Zárate", telefono:"+5493487538275", fecha:"22/09/2026", servicio:"detailing", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Escobar", telefono:"+5491126579938", fecha:"22/09/2026", servicio:"detailing", planSeleccionado:null, skill:false, potential:false},
@@ -965,7 +996,21 @@ const leads = [
   {ciudad:"Luján", telefono:"+5492323519497", fecha:"22/09/2026", servicio:"detailing", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Luján", telefono:"+5491125311176", fecha:"22/09/2026", servicio:"detailing", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Luján", telefono:"+5491162737300", fecha:"22/09/2026", servicio:"detailing", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Luján", telefono:"+5491131303366", fecha:"22/09/2026", servicio:"detailing", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Luján", telefono:"+5491131303366", fecha:"22/09/2026", servicio:"detailing", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tierra del Fuego", telefono:"+5492964620227", fecha:"23/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tierra del Fuego", telefono:"+5492901618984", fecha:"23/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56994693581", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56979974689", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56226350051", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56951598374", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56974987468", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56988099823", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56966635632", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56996142856", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56954175321", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56977698579", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56972132949", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chile 🇨🇱", telefono:"+56930932298", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -981,13 +1026,81 @@ const PRECIO_SKILL = 40;
 // 1. Mensaje Principal (Contacto Inicial)
 function generarMensajeWA(idx) {
   const lead = leads[idx];
-  
-  if (lead.servicio === 'detailing') {
-    let msg = `✨ ¡Hola! Buenas!\nSomos NEXO‑ART y te ayudamos a transformar tu servicio de detailing en un canal de ventas online.\n\n🚘 ¿Qué vas a lograr con tu página web?\n\nCatálogo 24/7: Tus clientes consultan tratamientos, precios y disponibilidad directamente en tu web, y envían el pedido listo a tu WhatsApp en un clic.\n\nIntegración con Meta Business: El sistema envía automáticamente los datos del turno y del cliente a tu WhatsApp, para que solo tengas que confirmar y atender.\n\nPresencia impecable: Optimizamos tu perfil en Google Maps, para que los clientes de tu zona te encuentren primero a vos y no a la competencia.\n\n💡 Tu web no es un gasto, es tu vendedor automático:\n\nChau consultas repetitivas: Evitá responder una y otra vez “¿Tenés turno?” o “¿Cuánto cuesta el pulido?”.\n\nMás ganancias: Si tu equipo pierde 1 hora diaria en responder consultas básicas, son más de 25 horas al mes. Convertí ese tiempo en servicios reales y facturación.\n\nAtención profesional: Brindale a tu cliente la rapidez y confianza que espera al contratar un servicio premium para su vehículo.\n\n⏱️ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio de detailing.\n\nMirá un ejemplo de cómo se vería tu web : https://nexoar-art.github.io/MvDetail`;
+  const tc = parseFloat(document.getElementById('exchangeRate').value) || 1500;
+
+  // Mensaje específico para CHILE (Latinoamérica)
+  if (lead.servicio === 'chile') {
+    let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos armar tu pagina empresa o  transformar tu catálogo de repuestos en un canal de ventas online.\n\n🔧 ¿Qué vas a lograr con tu tienda web?\n\nCatálogo 24/7: Tus clientes buscan piezas de desarme directamente en tu página, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n\nIntegración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp, para que solo tengas que cerrar la venta.\n\nPresencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que los clientes de tu zona te encuentren primero a ti y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n\n🚫 Chau mensajes repetitivos: Olvídate de responder una y otra vez “¿Tienes stock?” o “¿Cuánto cuesta?”.\n\n📈 Aumenta tus ganancias: Si tu equipo pierde 1 hora diaria en consultas básicas, son más de 25 horas al mes. Convierte ese tiempo en ventas reales.\n\n⚡ Atención profesional: Bríndale a tu cliente la rapidez que espera al buscar repuestos de desarme.\n\n⏳ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio.\n\n📍 Mira un ejemplo de cómo se vería tu catálogo online aquí:\n👉 https://autopartes-san-martin.vercel.app/`;
+
+    if (lead.planSeleccionado) {
+      msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
+      const preciosLatam = {
+        starter: { precio: 90, mant: 20 },
+        business: { precio: 120, mant: 30 },
+        ecommerce: { precio: 300, mant: 60 }
+      };
+      const p = preciosLatam[lead.planSeleccionado];
+      const planNombre = lead.planSeleccionado === 'starter' ? 'Starter' : (lead.planSeleccionado === 'business' ? 'Business' : 'E-Commerce');
+      const emoji = lead.planSeleccionado === 'starter' ? '🚀' : (lead.planSeleccionado === 'business' ? '💼' : '🛒');
+      
+      msg += `${emoji} *Plan ${planNombre}:* US$${p.precio}\n`;
+      if (p.mant > 0) {
+        msg += `🔧 *Mantenimiento mensual:* US$${p.mant}/mes\n`;
+      } else {
+        msg += `🔧 *Mantenimiento mensual:* US$0 (sin costo)\n`;
+      }
+      
+      if (lead.skill) {
+        msg += `📊 *Skill Tablero de Control:* + US$${PRECIO_SKILL} (pago único)\n`;
+      }
+      msg += `\n¡Quedamos a disposición para cualquier consulta!`;
+    }
     return encodeURIComponent(msg);
   }
 
+  // Mensaje específico para DETAILING
+  if (lead.servicio === 'detailing') {
+    let msg = `✨ ¡Hola! Buenas!\nSomos NEXO‑ART y te ayudamos a transformar tu servicio de detailing en un canal de ventas online.\n\n🚘 ¿Qué vas a lograr con tu página web?\n\nCatálogo 24/7: Tus clientes consultan tratamientos, precios y disponibilidad directamente en tu web, y envían el pedido listo a tu WhatsApp en un clic.\n\nIntegración con Meta Business: El sistema envía automáticamente los datos del turno y del cliente a tu WhatsApp, para que solo tengas que confirmar y atender.\n\nPresencia impecable: Optimizamos tu perfil en Google Maps, para que los clientes de tu zona te encuentren primero a vos y no a la competencia.\n\n💡 Tu web no es un gasto, es tu vendedor automático:\n\nChau consultas repetitivas: Evitá responder una y otra vez “¿Tenés turno?” o “¿Cuánto cuesta el pulido?”.\n\nMás ganancias: Si tu equipo pierde 1 hora diaria en responder consultas básicas, son más de 25 horas al mes. Convertí ese tiempo en servicios reales y facturación.\n\nAtención profesional: Brindale a tu cliente la rapidez y confianza que espera al contratar un servicio premium para su vehículo.\n\n⏱️ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio de detailing.\n\nMirá un ejemplo de cómo se vería tu web : https://nexoar-art.github.io/MvDetail`;
+
+    if (lead.planSeleccionado) {
+      msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
+      const plan = PLANES[lead.planSeleccionado];
+      msg += `${plan.emoji} *Plan ${plan.nombre}:* $${plan.precio.toLocaleString('es-AR')} ARS\n`;
+      if (plan.mantenimiento > 0) {
+        const mantArs = Math.round(plan.mantenimiento * tc).toLocaleString('es-AR');
+        msg += `🔧 *Mantenimiento mensual:* $${plan.mantenimiento} USD (aprox. $${mantArs} ARS)/mes\n`;
+      } else {
+        msg += `🔧 *Mantenimiento mensual:* $0 (sin costo)\n`;
+      }
+      if (lead.skill) {
+        const skillArs = Math.round(PRECIO_SKILL * tc).toLocaleString('es-AR');
+        msg += `📊 *Skill Tablero de Control:* + $${PRECIO_SKILL} USD (aprox. $${skillArs} ARS) (pago único)\n`;
+      }
+      msg += `\n¡Quedamos a disposición para cualquier consulta!`;
+    }
+    return encodeURIComponent(msg);
+  }
+
+  // Mensaje por defecto para REPUESTOS (Argentina/Paraguay)
   let msg = `👋 ¡Hola! Buenas!!. Somos NEXO-ART. Te ayudamos a convertir tu catálogo actual en un canal de ventas online.\n\n🚀 ¿Qué vas a lograr con tu tienda online?\n* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp para que solo tengas que cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil de Google Maps para que los clientes de tu zona te encuentren primeros a vos y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n* Chau mensajes repetitivos: Ahorrá el tiempo de responder constantemente "¿Tenés stock?" o "¿Cuánto cuesta?".\n* Aumentá tus ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes perdidas. Convertí ese tiempo en despachos y ventas reales.\n* Atención profesional: Brindale a tu cliente la rapidez que espera al comprar repuestos para su vehículo. Te devuelvo lo más valioso: tiempo para hacer crecer tu negocio.\n\n🔗 Mirá un ejemplo de cómo se vería tu catálogo online acá: https://fc-racing.vercel.app/`;
+
+  if (lead.planSeleccionado) {
+    msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
+    const plan = PLANES[lead.planSeleccionado];
+    msg += `${plan.emoji} *Plan ${plan.nombre}:* $${plan.precio.toLocaleString('es-AR')} ARS\n`;
+    if (plan.mantenimiento > 0) {
+      const mantArs = Math.round(plan.mantenimiento * tc).toLocaleString('es-AR');
+      msg += `🔧 *Mantenimiento mensual:* $${plan.mantenimiento} USD (aprox. $${mantArs} ARS)/mes\n`;
+    } else {
+      msg += `🔧 *Mantenimiento mensual:* $0 (sin costo)\n`;
+    }
+    if (lead.skill) {
+      const skillArs = Math.round(PRECIO_SKILL * tc).toLocaleString('es-AR');
+      msg += `📊 *Skill Tablero de Control:* + $${PRECIO_SKILL} USD (aprox. $${skillArs} ARS) (pago único)\n`;
+    }
+    msg += `\n¡Quedamos a disposición para cualquier consulta!`;
+  }
+
   return encodeURIComponent(msg);
 }
 
@@ -1021,6 +1134,10 @@ function renderAll() {
 
 function updateKPIs() {
   const totalLeads = leads.length;
+  
+  // Actualizar contador superior
+  document.getElementById('topLeadsCounter').textContent = totalLeads;
+
   const potenciales = leads.filter(l => l.potential).length;
   const tc = parseFloat(document.getElementById('exchangeRate').value) || 0;
 
@@ -1062,14 +1179,29 @@ function renderTable() {
     const tr = document.createElement('tr');
     if (item.potential) tr.classList.add('potential');
 
-    // Determinar clase de ciudad (Paraguay vs Argentina)
+    // Determinar clase de ciudad e icono
     let cityClass = 'city-lujan';
     let cityIcon = '🔧';
+    
     if (item.ciudad.includes('🇵🇾')) {
       cityClass = 'city-paraguay';
       cityIcon = '🇵🇾';
+    } else if (item.ciudad.includes('🇨🇱')) {
+      cityClass = 'city-paraguay';
+      cityIcon = '🇨🇱';
     } else if (item.servicio === 'detailing') {
       cityIcon = '🚘';
+    }
+
+    // Etiquetas de botones según el país
+    let starterLabel = '🚀 $120k';
+    let businessLabel = '💼 $230k';
+    let ecommerceLabel = '🛒 $430k';
+
+    if (item.servicio === 'chile') {
+      starterLabel = '🚀 $90';
+      businessLabel = '💼 $120';
+      ecommerceLabel = '🛒 $300';
     }
 
     // Botón Principal
@@ -1090,17 +1222,28 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    // Determinar si es lead nuevo (hoy o últimos días)
-    const isNew = (item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    // Determinar si es lead nuevo
+    const isNew = (item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
     if (item.planSeleccionado) {
-      const plan = PLANES[item.planSeleccionado];
-      const mantText = plan.mantenimiento > 0 ? ` + $${plan.mantenimiento}/mes` : ' + $0/mes';
-      const skillText = item.skill ? ` + Skill $${PRECIO_SKILL}` : '';
-      const hasSkillClass = item.skill ? ' has-skill' : '';
-      priceDisplay = `<span class="price-display ${item.planSeleccionado}${hasSkillClass}">$${plan.precio.toLocaleString('es-AR')}${mantText}${skillText}</span>`;
+      if (item.servicio === 'chile') {
+        const preciosLatam = { starter: 90, business: 120, ecommerce: 300 };
+        const mantLatam = { starter: 20, business: 30, ecommerce: 60 };
+        const p = preciosLatam[item.planSeleccionado];
+        const m = mantLatam[item.planSeleccionado];
+        const mantText = m > 0 ? ` + $${m}/mes` : ' + $0/mes';
+        const skillText = item.skill ? ` + Skill $${PRECIO_SKILL}` : '';
+        const hasSkillClass = item.skill ? ' has-skill' : '';
+        priceDisplay = `<span class="price-display ${item.planSeleccionado}${hasSkillClass}">$${p} USD${mantText}${skillText}</span>`;
+      } else {
+        const plan = PLANES[item.planSeleccionado];
+        const mantText = plan.mantenimiento > 0 ? ` + $${plan.mantenimiento}/mes` : ' + $0/mes';
+        const skillText = item.skill ? ` + Skill $${PRECIO_SKILL}` : '';
+        const hasSkillClass = item.skill ? ' has-skill' : '';
+        priceDisplay = `<span class="price-display ${item.planSeleccionado}${hasSkillClass}">$${plan.precio.toLocaleString('es-AR')}${mantText}${skillText}</span>`;
+      }
     } else if (item.skill) {
       priceDisplay = `<span class="price-display has-skill" style="background:#f0e6ff;color:#9D4EDD;">Solo Skill $${PRECIO_SKILL}</span>`;
     }
@@ -1110,9 +1253,9 @@ function renderTable() {
       <td><span class="city-badge ${cityClass}" data-phone="${item.telefono}">${cityIcon} ${item.ciudad}</span></td>
       <td><span class="${dateClass}">${item.fecha}</span></td>
       <td>${waLink}</td>
-      <td><button class="plan-btn starter ${item.planSeleccionado==='starter'?'active':''}" onclick="selectPlan(${idx},'starter')">🚀 $120k</button></td>
-      <td><button class="plan-btn business ${item.planSeleccionado==='business'?'active':''}" onclick="selectPlan(${idx},'business')">💼 $230k</button></td>
-      <td><button class="plan-btn ecommerce ${item.planSeleccionado==='ecommerce'?'active':''}" onclick="selectPlan(${idx},'ecommerce')">🛒 $430k</button></td>
+      <td><button class="plan-btn starter ${item.planSeleccionado==='starter'?'active':''}" onclick="selectPlan(${idx},'starter')">${starterLabel}</button></td>
+      <td><button class="plan-btn business ${item.planSeleccionado==='business'?'active':''}" onclick="selectPlan(${idx},'business')">${businessLabel}</button></td>
+      <td><button class="plan-btn ecommerce ${item.planSeleccionado==='ecommerce'?'active':''}" onclick="selectPlan(${idx},'ecommerce')">${ecommerceLabel}</button></td>
       <td><button class="skill-btn ${item.skill?'active':''}" onclick="toggleSkill(${idx})">📊 ${item.skill?'✓ +$40':'Agregar'}</button></td>
       <td>${priceDisplay}</td>
       <td><button class="potential-btn ${item.potential?'active':''}" onclick="togglePotential(${idx})">${item.potential?'✓ Potencial':'Marcar'}</button></td>
