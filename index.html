@@ -646,7 +646,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Miércoles, 23 Septiembre 2026</div>
+  <div class="date">📅 Jueves, 24 Septiembre 2026</div>
 </div>
 
 <!-- Contador Superior de Leads -->
@@ -1010,7 +1010,17 @@ const leads = [
   {ciudad:"Chile 🇨🇱", telefono:"+56954175321", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Chile 🇨🇱", telefono:"+56977698579", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Chile 🇨🇱", telefono:"+56972132949", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Chile 🇨🇱", telefono:"+56930932298", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Chile 🇨🇱", telefono:"+56930932298", fecha:"23/09/2026", servicio:"chile", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS SAN LUIS - 24/09/2026
+  {ciudad:"San Luis", telefono:"+5492657352995", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Luis", telefono:"+5493584332698", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Luis", telefono:"+5492665250000", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Luis", telefono:"+5492665115621", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Luis", telefono:"+5492664420303", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Luis", telefono:"+5492664336243", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Luis", telefono:"+5492664424980", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Luis", telefono:"+5492664921762", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"San Luis", telefono:"+5492664932073", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1223,7 +1233,7 @@ function renderTable() {
     `;
 
     // Determinar si es lead nuevo
-    const isNew = (item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
