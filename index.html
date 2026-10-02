@@ -624,7 +624,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Jueves, 25 Septiembre 2026</div>
+  <div class="date">📅 Viernes, 26 Septiembre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -792,7 +792,7 @@
 
 <div class="table-container">
   <div class="table-header">
-    <h3>🔧 Leads de Negocios (Repuestos y Detailing) - Zonas Varias + Paraguay + Chile + Uruguay</h3>
+    <h3>🔧 Leads de Negocios (Repuestos, Detailing y Desarmaderos) - Zonas Varias + Paraguay + Chile + Uruguay</h3>
     <span class="table-count" id="countLeads">0 negocios</span>
   </div>
   <div class="scroll-hint">👉 Deslizá horizontalmente para ver todas las columnas</div>
@@ -992,7 +992,6 @@ const leads = [
   {ciudad:"San Luis", telefono:"+5492664424980", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"San Luis", telefono:"+5492664921762", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"San Luis", telefono:"+5492664932073", fecha:"24/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS URUGUAY - 25/09/2026
   {ciudad:"Uruguay 🇺🇾", telefono:"+59899416044", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Uruguay 🇺🇾", telefono:"+59899567183", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Uruguay 🇺🇾", telefono:"+59899499670", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
@@ -1002,7 +1001,18 @@ const leads = [
   {ciudad:"Uruguay 🇺🇾", telefono:"+59892775800", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Uruguay 🇺🇾", telefono:"+59898237727", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Uruguay 🇺🇾", telefono:"+59895030726", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Uruguay 🇺🇾", telefono:"+59897707878", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Uruguay 🇺🇾", telefono:"+59897707878", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS ENTRE RÍOS (DESARMADERO) - 26/09/2026
+  {ciudad:"Entre Ríos", telefono:"+5493434216737", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5493434467738", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5493434630300", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5493434642132", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5491178477888", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5493435000196", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5493446598093", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5493446480911", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5493445478463", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Entre Ríos", telefono:"+5493447644009", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1013,14 +1023,12 @@ const PLANES = {
 };
 const PRECIO_SKILL = 40;
 
-// Precios Latinoamérica (USD)
 const PLANES_LATAM = {
   starter:   { precio: 90,  mant: 20 },
   business:  { precio: 120, mant: 30 },
   ecommerce: { precio: 300, mant: 60 }
 };
 
-// Helper: ¿Es lead de Latinoamérica (precios en USD)?
 function isLatam(lead) {
   return lead.servicio === 'chile' || lead.servicio === 'latam';
 }
@@ -1044,6 +1052,29 @@ function generarMensajeWA(idx) {
       msg += `🔧 *Mantenimiento mensual:* US$${p.mant}/mes\n`;
       if (lead.skill) {
         msg += `📊 *Skill Tablero de Control:* + US$${PRECIO_SKILL} (pago único)\n`;
+      }
+      msg += `\n¡Quedamos a disposición para cualquier consulta!`;
+    }
+    return encodeURIComponent(msg);
+  }
+
+  // Mensaje específico para DESARMADERO
+  if (lead.servicio === 'desarmadero') {
+    let msg = `🔩 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu desarmadero en un canal de ventas online.\n\n🚗 ¿Qué vas a lograr con tu página web?\n\n* Catálogo de piezas 24/7: Tus clientes buscan la pieza de desarme por marca, modelo o código directamente en tu web, consultan disponibilidad y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp, para que solo tengas que confirmar y cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil en Google Maps para que los clientes de tu zona te encuentren primero a vos y no a la competencia.\n\n💡 Tu web no es un gasto, es tu vendedor automático:\n\n* Chau mensajes repetitivos: Evitá responder una y otra vez "¿Tenés el farol del Corsa 2010?" o "¿Cuánto sale el motor del Palio?".\n* Más ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes. Convertí ese tiempo en ventas reales y despacho de piezas.\n* Atención profesional: Brindale a tu cliente la rapidez que espera al buscar piezas de desarme para su vehículo.\n\n⏳ Te devolvemos lo más valioso: tiempo para hacer crecer tu desarmadero.\n\n📍 Mirá un ejemplo de cómo se vería tu catálogo online acá:\n👉 https://autopartes-san-martin.vercel.app/`;
+
+    if (lead.planSeleccionado) {
+      msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
+      const plan = PLANES[lead.planSeleccionado];
+      msg += `${plan.emoji} *Plan ${plan.nombre}:* $${plan.precio.toLocaleString('es-AR')} ARS\n`;
+      if (plan.mantenimiento > 0) {
+        const mantArs = Math.round(plan.mantenimiento * tc).toLocaleString('es-AR');
+        msg += `🔧 *Mantenimiento mensual:* $${plan.mantenimiento} USD (aprox. $${mantArs} ARS)/mes\n`;
+      } else {
+        msg += `🔧 *Mantenimiento mensual:* $0 (sin costo)\n`;
+      }
+      if (lead.skill) {
+        const skillArs = Math.round(PRECIO_SKILL * tc).toLocaleString('es-AR');
+        msg += `📊 *Skill Tablero de Control:* + $${PRECIO_SKILL} USD (aprox. $${skillArs} ARS) (pago único)\n`;
       }
       msg += `\n¡Quedamos a disposición para cualquier consulta!`;
     }
@@ -1180,9 +1211,10 @@ function renderTable() {
       cityIcon = '🇺🇾';
     } else if (item.servicio === 'detailing') {
       cityIcon = '🚘';
+    } else if (item.servicio === 'desarmadero') {
+      cityIcon = '🔩';
     }
 
-    // Etiquetas de botones según el país
     let starterLabel = '🚀 $120k';
     let businessLabel = '💼 $230k';
     let ecommerceLabel = '🛒 $430k';
@@ -1209,7 +1241,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
