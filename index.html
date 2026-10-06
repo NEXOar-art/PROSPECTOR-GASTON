@@ -624,7 +624,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Viernes, 26 Septiembre 2026</div>
+  <div class="date">📅 Sábado, 27 Septiembre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -1002,7 +1002,6 @@ const leads = [
   {ciudad:"Uruguay 🇺🇾", telefono:"+59898237727", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Uruguay 🇺🇾", telefono:"+59895030726", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Uruguay 🇺🇾", telefono:"+59897707878", fecha:"25/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS ENTRE RÍOS (DESARMADERO) - 26/09/2026
   {ciudad:"Entre Ríos", telefono:"+5493434216737", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Entre Ríos", telefono:"+5493434467738", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Entre Ríos", telefono:"+5493434630300", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
@@ -1012,7 +1011,26 @@ const leads = [
   {ciudad:"Entre Ríos", telefono:"+5493446598093", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Entre Ríos", telefono:"+5493446480911", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Entre Ríos", telefono:"+5493445478463", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Entre Ríos", telefono:"+5493447644009", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Entre Ríos", telefono:"+5493447644009", fecha:"26/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS - 27/09/2026
+  {ciudad:"Rosario", telefono:"+5493414383745", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Rosario", telefono:"+5493416499126", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Rosario", telefono:"+5493416793543", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Rosario", telefono:"+5493414613452", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Salto 🇺🇾", telefono:"+59899416044", fecha:"27/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Paysandú 🇺🇾", telefono:"+59898505209", fecha:"27/09/2026", servicio:"latam", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Colón", telefono:"+5492473414188", fecha:"27/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Colón", telefono:"+5492473422380", fecha:"27/09/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477441281", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477509988", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477420362", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477433710", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477315582", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477427638", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477421233", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5491160425789", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477319305", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Pergamino", telefono:"+5492477414500", fecha:"27/09/2026", servicio:"desarmadero", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1241,7 +1259,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
