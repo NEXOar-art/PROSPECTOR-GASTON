@@ -624,7 +624,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Jueves, 01 Octubre 2026</div>
+  <div class="date">📅 Viernes, 02 Octubre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -1058,7 +1058,6 @@ const leads = [
   {ciudad:"España 🇪🇸", telefono:"+34963600946", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"España 🇪🇸", telefono:"+34960617148", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"España 🇪🇸", telefono:"+34963697021", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS FORMOSA (TALLERES) - 01/10/2026
   {ciudad:"Formosa", telefono:"+5493704277284", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Formosa", telefono:"+5493704090805", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Formosa", telefono:"+5493704580067", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
@@ -1070,7 +1069,22 @@ const leads = [
   {ciudad:"Formosa", telefono:"+5493704679057", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Formosa", telefono:"+5493704453902", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Formosa", telefono:"+5493705040446", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Formosa", telefono:"+5493704030390", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Formosa", telefono:"+5493704030390", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS CAMPANA (REPUESTOS) - 02/10/2026
+  {ciudad:"Campana", telefono:"+5493489326058", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5491124202624", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5493489444764", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5493489543345", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5493489423584", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5493489561353", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5493489426300", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5491169724687", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5493489421426", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5493489312600", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5491178260376", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5491124309410", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5491153074912", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Campana", telefono:"+5493489238888", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1370,7 +1384,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
