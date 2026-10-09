@@ -624,7 +624,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Miércoles, 30 Septiembre 2026</div>
+  <div class="date">📅 Jueves, 01 Octubre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -1050,7 +1050,6 @@ const leads = [
   {ciudad:"Panamá 🇵🇦", telefono:"+5072211431", fecha:"29/09/2026", servicio:"panama", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Panamá 🇵🇦", telefono:"+50766044909", fecha:"29/09/2026", servicio:"panama", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Panamá 🇵🇦", telefono:"+50763389974", fecha:"29/09/2026", servicio:"panama", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS ESPAÑA (TALLERES) - 30/09/2026
   {ciudad:"España 🇪🇸", telefono:"+34691201837", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"España 🇪🇸", telefono:"+34963494318", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"España 🇪🇸", telefono:"+34614235143", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
@@ -1058,7 +1057,20 @@ const leads = [
   {ciudad:"España 🇪🇸", telefono:"+34962067566", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"España 🇪🇸", telefono:"+34963600946", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"España 🇪🇸", telefono:"+34960617148", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"España 🇪🇸", telefono:"+34963697021", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"España 🇪🇸", telefono:"+34963697021", fecha:"30/09/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS FORMOSA (TALLERES) - 01/10/2026
+  {ciudad:"Formosa", telefono:"+5493704277284", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704090805", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704580067", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704600203", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704423289", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704580377", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704022636", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704414510", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704679057", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704453902", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493705040446", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Formosa", telefono:"+5493704030390", fecha:"01/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1075,9 +1087,9 @@ const PLANES_LATAM = {
   ecommerce: { precio: 300, mant: 60 }
 };
 
-// Helper: ¿Es lead internacional (precios en USD)?
+// Helper: ¿Es lead internacional? (Si no empieza con +549, es internacional y usa USD)
 function isIntl(lead) {
-  return ['chile', 'latam', 'bolivia', 'panama', 'espana'].includes(lead.servicio);
+  return !lead.telefono.startsWith('+549');
 }
 
 // ==================== GENERAR MENSAJES WHATSAPP ====================
@@ -1086,19 +1098,36 @@ function generarMensajeWA(idx) {
   const lead = leads[idx];
   const tc = parseFloat(document.getElementById('exchangeRate').value) || 1500;
 
-  // Mensaje para ESPAÑA (Talleres mecánicos - precios en USD)
+  // Mensaje para TALLERES (Argentina e Internacional)
   if (lead.servicio === 'taller') {
     let msg = `🔧 ¡Hola! Somos NEXO-ART y ayudamos a los talleres mecánicos a captar más clientes y gestionar mejor sus solicitudes online.\n\n✅ ¿Qué conseguirá con su página web?\n\n• Solicitud de presupuestos y citas 24/7: Sus clientes podrán solicitar presupuestos, pedir una cita o consultar un servicio desde cualquier dispositivo, enviando toda la información directamente a su WhatsApp.\n\n• Integración con WhatsApp y Meta Business: Reciba automáticamente los datos del vehículo y del cliente para agilizar la atención y aumentar las conversiones.\n\n• Mayor visibilidad local: Optimizamos su presencia en Google Maps para que los conductores de su zona encuentren su taller antes que a la competencia.\n\n🚀 Su web no es un gasto, es una herramienta de captación de clientes que trabaja las 24 horas.\n\n✅ Menos tiempo respondiendo preguntas repetitivas.\n\n✅ Más tiempo para atender vehículos y generar ingresos.\n\n✅ Una imagen profesional que inspire confianza desde el primer contacto.\n\n✅ Servicios, ubicación, horarios y formas de contacto disponibles en un solo lugar.\n\n⏰ Le ayudamos a recuperar tiempo para centrarse en lo que realmente importa: hacer crecer su taller.\n\n📱 Puede ver un ejemplo aquí: https://nexoar-art.github.io/TALLER-VICAN-GNC-FC-RACING-TUNE-MOTOS/`;
 
     if (lead.planSeleccionado) {
       msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
-      const p = PLANES_LATAM[lead.planSeleccionado];
-      const planNombre = lead.planSeleccionado === 'starter' ? 'Starter' : (lead.planSeleccionado === 'business' ? 'Business' : 'E-Commerce');
-      const emoji = lead.planSeleccionado === 'starter' ? '🚀' : (lead.planSeleccionado === 'business' ? '💼' : '🛒');
-      msg += `${emoji} *Plan ${planNombre}:* US$${p.precio}\n`;
-      msg += `🔧 *Mantenimiento mensual:* US$${p.mant}/mes\n`;
-      if (lead.skill) {
-        msg += `📊 *Skill Tablero de Control:* + US$${PRECIO_SKILL} (pago único)\n`;
+      if (isIntl(lead)) {
+        // Internacional (USD)
+        const p = PLANES_LATAM[lead.planSeleccionado];
+        const planNombre = lead.planSeleccionado === 'starter' ? 'Starter' : (lead.planSeleccionado === 'business' ? 'Business' : 'E-Commerce');
+        const emoji = lead.planSeleccionado === 'starter' ? '🚀' : (lead.planSeleccionado === 'business' ? '💼' : '🛒');
+        msg += `${emoji} *Plan ${planNombre}:* US$${p.precio}\n`;
+        msg += `🔧 *Mantenimiento mensual:* US$${p.mant}/mes\n`;
+        if (lead.skill) {
+          msg += `📊 *Skill Tablero de Control:* + US$${PRECIO_SKILL} (pago único)\n`;
+        }
+      } else {
+        // Argentina (ARS)
+        const plan = PLANES[lead.planSeleccionado];
+        msg += `${plan.emoji} *Plan ${plan.nombre}:* $${plan.precio.toLocaleString('es-AR')} ARS\n`;
+        if (plan.mantenimiento > 0) {
+          const mantArs = Math.round(plan.mantenimiento * tc).toLocaleString('es-AR');
+          msg += `🔧 *Mantenimiento mensual:* $${plan.mantenimiento} USD (aprox. $${mantArs} ARS)/mes\n`;
+        } else {
+          msg += `🔧 *Mantenimiento mensual:* $0 (sin costo)\n`;
+        }
+        if (lead.skill) {
+          const skillArs = Math.round(PRECIO_SKILL * tc).toLocaleString('es-AR');
+          msg += `📊 *Skill Tablero de Control:* + $${PRECIO_SKILL} USD (aprox. $${skillArs} ARS) (pago único)\n`;
+        }
       }
       msg += `\n¡Quedamos a disposición para cualquier consulta!`;
     }
@@ -1341,7 +1370,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
