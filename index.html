@@ -624,7 +624,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Sábado, 03 Octubre 2026</div>
+  <div class="date">📅 Domingo, 04 Octubre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -1084,7 +1084,6 @@ const leads = [
   {ciudad:"Campana", telefono:"+5491124309410", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Campana", telefono:"+5491153074912", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Campana", telefono:"+5493489238888", fecha:"02/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS JUJUY (REPUESTOS) - 03/10/2026
   {ciudad:"Jujuy", telefono:"+5493885903076", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Jujuy", telefono:"+5493885204082", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Jujuy", telefono:"+5493884256911", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
@@ -1095,7 +1094,17 @@ const leads = [
   {ciudad:"Jujuy", telefono:"+5493884437500", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Jujuy", telefono:"+5493884658272", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Jujuy", telefono:"+5493884173873", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Jujuy", telefono:"+5493884236439", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Jujuy", telefono:"+5493884236439", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS CHUBUT (TALLERES) - 04/10/2026
+  {ciudad:"Chubut", telefono:"+5492944380914", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chubut", telefono:"+5492945640223", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chubut", telefono:"+5492215234593", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chubut", telefono:"+5492976210021", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chubut", telefono:"+5492804571772", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chubut", telefono:"+5492804593302", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chubut", telefono:"+5492804418311", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chubut", telefono:"+5492804506343", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Chubut", telefono:"+5492945412928", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1393,7 +1402,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
