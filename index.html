@@ -624,7 +624,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Domingo, 04 Octubre 2026</div>
+  <div class="date">📅 Lunes, 05 Octubre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -1095,7 +1095,6 @@ const leads = [
   {ciudad:"Jujuy", telefono:"+5493884658272", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Jujuy", telefono:"+5493884173873", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Jujuy", telefono:"+5493884236439", fecha:"03/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS CHUBUT (TALLERES) - 04/10/2026
   {ciudad:"Chubut", telefono:"+5492944380914", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Chubut", telefono:"+5492945640223", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Chubut", telefono:"+5492215234593", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
@@ -1104,7 +1103,21 @@ const leads = [
   {ciudad:"Chubut", telefono:"+5492804593302", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Chubut", telefono:"+5492804418311", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Chubut", telefono:"+5492804506343", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Chubut", telefono:"+5492945412928", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Chubut", telefono:"+5492945412928", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS BARCELONA (TALLERES) - 05/10/2026
+  {ciudad:"Barcelona 🇪🇸", telefono:"+34933508582", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Barcelona 🇪🇸", telefono:"+34933571266", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS TARRAGONA (TALLERES) - 05/10/2026
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34637800296", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34877051364", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34977553222", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34977219973", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34628616580", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34648051551", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34977230404", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34977212174", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34977240564", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34977234430", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1126,6 +1139,11 @@ function isIntl(lead) {
   return !lead.telefono.startsWith('+549');
 }
 
+// Helper: ¿Es lead de España? (Empieza con +34)
+function isEspana(lead) {
+  return lead.telefono.startsWith('+34');
+}
+
 // ==================== GENERAR MENSAJES WHATSAPP ====================
 
 function generarMensajeWA(idx) {
@@ -1134,7 +1152,68 @@ function generarMensajeWA(idx) {
 
   // Mensaje para TALLERES (Argentina e Internacional)
   if (lead.servicio === 'taller') {
-    let msg = `🔧 ¡Hola! Somos NEXO-ART y ayudamos a los talleres mecánicos a captar más clientes y gestionar mejor sus solicitudes online.\n\n✅ ¿Qué conseguirá con su página web?\n\n• Solicitud de presupuestos y citas 24/7: Sus clientes podrán solicitar presupuestos, pedir una cita o consultar un servicio desde cualquier dispositivo, enviando toda la información directamente a su WhatsApp.\n\n• Integración con WhatsApp y Meta Business: Reciba automáticamente los datos del vehículo y del cliente para agilizar la atención y aumentar las conversiones.\n\n• Mayor visibilidad local: Optimizamos su presencia en Google Maps para que los conductores de su zona encuentren su taller antes que a la competencia.\n\n🚀 Su web no es un gasto, es una herramienta de captación de clientes que trabaja las 24 horas.\n\n✅ Menos tiempo respondiendo preguntas repetitivas.\n\n✅ Más tiempo para atender vehículos y generar ingresos.\n\n✅ Una imagen profesional que inspire confianza desde el primer contacto.\n\n✅ Servicios, ubicación, horarios y formas de contacto disponibles en un solo lugar.\n\n⏰ Le ayudamos a recuperar tiempo para centrarse en lo que realmente importa: hacer crecer su taller.\n\n📱 Puede ver un ejemplo aquí: https://nexoar-art.github.io/TALLER-VICAN-GNC-FC-RACING-TUNE-MOTOS/`;
+    let msg = '';
+    
+    // Mensaje específico para España
+    if (isEspana(lead)) {
+      msg = `Hola,
+
+En NEXO-ART desarrollamos páginas web para talleres mecánicos con el objetivo de ayudar y facilitar la gestión de solicitudes y mejorar la presencia digital del negocio.
+
+¿Qué puede aportar una página web a su taller?
+
+✅ Recepción de solicitudes 24/7
+Sus clientes podrán solicitar presupuestos, pedir cita o consultar servicios desde cualquier dispositivo, enviando la información directamente a su canal de contacto.
+
+✅ Integración con WhatsApp Business
+Reciba los datos del vehículo y del cliente de forma organizada para agilizar la atención y optimizar los tiempos de respuesta.
+
+✅ Mayor visibilidad local
+Mejoramos la presencia online del taller para facilitar que potenciales clientes encuentren sus servicios en Internet.
+
+✅ Información centralizada
+Servicios, horarios, ubicación y datos de contacto disponibles en un único lugar, accesible desde cualquier dispositivo.
+
+✅ Imagen profesional
+Una presencia digital clara y moderna ayuda a transmitir confianza desde el primer contacto.
+
+Beneficios para el negocio
+
+• Menos tiempo gestionando consultas repetitivas.
+• Mayor facilidad para recibir solicitudes de nuevos clientes.
+• Mejor organización de la información recibida.
+• Mayor accesibilidad para clientes actuales y potenciales.
+• Una herramienta digital disponible las 24 horas del día.
+
+MIRA UN VIDEO EXPLICATIVO: https://youtu.be/BzIXPJ6mH7Y
+
+📌 Tambien puede consultar un ejemplo de un proyecto: https://nexoar-art.github.io/Taller-Mec-nico-YKS/`;
+    } else {
+      // Mensaje para talleres de Argentina
+      msg = `🔧 ¡Hola! Somos NEXO-ART y ayudamos a los talleres mecánicos a captar más clientes y gestionar mejor sus solicitudes online.
+
+✅ ¿Qué conseguirá con su página web?
+
+• Solicitud de presupuestos y citas 24/7: Sus clientes podrán solicitar presupuestos, pedir una cita o consultar un servicio desde cualquier dispositivo, enviando toda la información directamente a su WhatsApp.
+
+• Integración con WhatsApp y Meta Business: Reciba automáticamente los datos del vehículo y del cliente para agilizar la atención y aumentar las conversiones.
+
+• Mayor visibilidad local: Optimizamos su presencia en Google Maps para que los conductores de su zona encuentren su taller antes que a la competencia.
+
+🚀 Su web no es un gasto, es una herramienta de captación de clientes que trabaja las 24 horas.
+
+✅ Menos tiempo respondiendo preguntas repetitivas.
+
+✅ Más tiempo para atender vehículos y generar ingresos.
+
+✅ Una imagen profesional que inspire confianza desde el primer contacto.
+
+✅ Servicios, ubicación, horarios y formas de contacto disponibles en un solo lugar.
+
+⏰ Le ayudamos a recuperar tiempo para centrarse en lo que realmente importa: hacer crecer su taller.
+
+📱 Puede ver un ejemplo aquí: https://nexoar-art.github.io/TALLER-VICAN-GNC-FC-RACING-TUNE-MOTOS/`;
+    }
 
     if (lead.planSeleccionado) {
       msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
@@ -1168,7 +1247,27 @@ function generarMensajeWA(idx) {
 
   // Mensaje para PANAMÁ (casas de repuestos - precios en USD)
   if (lead.servicio === 'panama') {
-    let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu casa de repuestos en un canal de ventas online.\n\n🔧 ¿Qué vas a lograr con tu tienda web?\n\n* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp, para que solo tengas que cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que los clientes de tu zona te encuentren primero a ti y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n\n🚫 Chau mensajes repetitivos: Olvídate de responder una y otra vez "¿Tienes stock?" o "¿Cuánto cuesta?".\n\n📈 Aumenta tus ganancias: Si tu equipo pierde 1 hora diaria en consultas básicas, son más de 25 horas al mes. Convierte ese tiempo en ventas reales.\n\n⚡ Atención profesional: Bríndale a tu cliente la rapidez que espera al buscar repuestos para su vehículo.\n\n⏳ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio.\n\n📍 Mira un ejemplo de cómo se vería tu catálogo online aquí:\n👉 https://autopartes-san-martin.vercel.app/\n👉 https://fc-racing.vercel.app/`;
+    let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu casa de repuestos en un canal de ventas online.
+
+🔧 ¿Qué vas a lograr con tu tienda web?
+
+* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.
+* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp, para que solo tengas que cerrar la venta.
+* Presencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que los clientes de tu zona te encuentren primero a ti y no a tu competencia.
+
+💡 Tu tienda web no es un gasto, es un vendedor automático:
+
+🚫 Chau mensajes repetitivos: Olvídate de responder una y otra vez "¿Tienes stock?" o "¿Cuánto cuesta?".
+
+📈 Aumenta tus ganancias: Si tu equipo pierde 1 hora diaria en consultas básicas, son más de 25 horas al mes. Convierte ese tiempo en ventas reales.
+
+⚡ Atención profesional: Bríndale a tu cliente la rapidez que espera al buscar repuestos para su vehículo.
+
+⏳ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio.
+
+📍 Mira un ejemplo de cómo se vería tu catálogo online aquí:
+👉 https://autopartes-san-martin.vercel.app/
+👉 https://fc-racing.vercel.app/`;
 
     if (lead.planSeleccionado) {
       msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
@@ -1187,7 +1286,29 @@ function generarMensajeWA(idx) {
 
   // Mensaje para CHILE, URUGUAY y BOLIVIA (Latinoamérica - precios en USD)
   if (lead.servicio === 'chile' || lead.servicio === 'latam' || lead.servicio === 'bolivia') {
-    let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos armar tu pagina empresa o  transformar tu catálogo de repuestos en un canal de ventas online.\n\n🔧 ¿Qué vas a lograr con tu tienda web?\n\nCatálogo 24/7: Tus clientes buscan piezas de desarme directamente en tu página, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n\nIntegración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp, para que solo tengas que cerrar la venta.\n\nPresencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que los clientes de tu zona te encuentren primero a ti y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n\n🚫 Chau mensajes repetitivos: Olvídate de responder una y otra vez "¿Tienes stock?" o "¿Cuánto cuesta?".\n\n📈 Aumenta tus ganancias: Si tu equipo pierde 1 hora diaria en consultas básicas, son más de 25 horas al mes. Convierte ese tiempo en ventas reales.\n\n⚡ Atención profesional: Bríndale a tu cliente la rapidez que espera al buscar repuestos de desarme.\n\n⏳ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio.\n\n📍 Mira un ejemplo de cómo se vería tu catálogo online aquí:\n👉 https://autopartes-san-martin.vercel.app/\n👉 https://fc-racing.vercel.app/`;
+    let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos armar tu pagina empresa o  transformar tu catálogo de repuestos en un canal de ventas online.
+
+🔧 ¿Qué vas a lograr con tu tienda web?
+
+Catálogo 24/7: Tus clientes buscan piezas de desarme directamente en tu página, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.
+
+Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp, para que solo tengas que cerrar la venta.
+
+Presencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que los clientes de tu zona te encuentren primero a ti y no a tu competencia.
+
+💡 Tu tienda web no es un gasto, es un vendedor automático:
+
+🚫 Chau mensajes repetitivos: Olvídate de responder una y otra vez "¿Tienes stock?" o "¿Cuánto cuesta?".
+
+📈 Aumenta tus ganancias: Si tu equipo pierde 1 hora diaria en consultas básicas, son más de 25 horas al mes. Convierte ese tiempo en ventas reales.
+
+⚡ Atención profesional: Bríndale a tu cliente la rapidez que espera al buscar repuestos de desarme.
+
+⏳ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio.
+
+📍 Mira un ejemplo de cómo se vería tu catálogo online aquí:
+👉 https://autopartes-san-martin.vercel.app/
+👉 https://fc-racing.vercel.app/`;
 
     if (lead.planSeleccionado) {
       msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
@@ -1206,7 +1327,24 @@ function generarMensajeWA(idx) {
 
   // Mensaje específico para DESARMADERO
   if (lead.servicio === 'desarmadero') {
-    let msg = `🔩 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu desarmadero en un canal de ventas online.\n\n🚗 ¿Qué vas a lograr con tu página web?\n\n* Catálogo de piezas 24/7: Tus clientes buscan la pieza de desarme por marca, modelo o código directamente en tu web, consultan disponibilidad y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp, para que solo tengas que confirmar y cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil en Google Maps para que los clientes de tu zona te encuentren primero a vos y no a la competencia.\n\n💡 Tu web no es un gasto, es tu vendedor automático:\n\n* Chau mensajes repetitivos: Evitá responder una y otra vez "¿Tenés el farol del Corsa 2010?" o "¿Cuánto sale el motor del Palio?".\n* Más ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes. Convertí ese tiempo en ventas reales y despacho de piezas.\n* Atención profesional: Brindale a tu cliente la rapidez que espera al buscar piezas de desarme para su vehículo.\n\n⏳ Te devolvemos lo más valioso: tiempo para hacer crecer tu desarmadero.\n\n📍 Mirá un ejemplo de cómo se vería tu catálogo online acá:\n👉 https://autopartes-san-martin.vercel.app/`;
+    let msg = `🔩 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu desarmadero en un canal de ventas online.
+
+🚗 ¿Qué vas a lograr con tu página web?
+
+* Catálogo de piezas 24/7: Tus clientes buscan la pieza de desarme por marca, modelo o código directamente en tu web, consultan disponibilidad y envían el pedido listo a tu WhatsApp en un clic.
+* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp, para que solo tengas que confirmar y cerrar la venta.
+* Presencia local impecable: Optimizamos tu perfil en Google Maps para que los clientes de tu zona te encuentren primero a vos y no a la competencia.
+
+💡 Tu web no es un gasto, es tu vendedor automático:
+
+* Chau mensajes repetitivos: Evitá responder una y otra vez "¿Tenés el farol del Corsa 2010?" o "¿Cuánto sale el motor del Palio?".
+* Más ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes. Convertí ese tiempo en ventas reales y despacho de piezas.
+* Atención profesional: Brindale a tu cliente la rapidez que espera al buscar piezas de desarme para su vehículo.
+
+⏳ Te devolvemos lo más valioso: tiempo para hacer crecer tu desarmadero.
+
+📍 Mirá un ejemplo de cómo se vería tu catálogo online acá:
+👉 https://autopartes-san-martin.vercel.app/`;
 
     if (lead.planSeleccionado) {
       msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
@@ -1229,7 +1367,28 @@ function generarMensajeWA(idx) {
 
   // Mensaje específico para DETAILING
   if (lead.servicio === 'detailing') {
-    let msg = `✨ ¡Hola! Buenas!\nSomos NEXO‑ART y te ayudamos a transformar tu servicio de detailing en un canal de ventas online.\n\n🚘 ¿Qué vas a lograr con tu página web?\n\nCatálogo 24/7: Tus clientes consultan tratamientos, precios y disponibilidad directamente en tu web, y envían el pedido listo a tu WhatsApp en un clic.\n\nIntegración con Meta Business: El sistema envía automáticamente los datos del turno y del cliente a tu WhatsApp, para que solo tengas que confirmar y atender.\n\nPresencia impecable: Optimizamos tu perfil en Google Maps, para que los clientes de tu zona te encuentren primero a vos y no a la competencia.\n\n💡 Tu web no es un gasto, es tu vendedor automático:\n\nChau consultas repetitivas: Evitá responder una y otra vez "¿Tenés turno?" o "¿Cuánto cuesta el pulido?".\n\nMás ganancias: Si tu equipo pierde 1 hora diaria en responder consultas básicas, son más de 25 horas al mes. Convertí ese tiempo en servicios reales y facturación.\n\nAtención profesional: Brindale a tu cliente la rapidez y confianza que espera al contratar un servicio premium para su vehículo.\n\n⏱️ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio de detailing.\n\nMirá un ejemplo de cómo se vería tu web : https://nexoar-art.github.io/MvDetail`;
+    let msg = `✨ ¡Hola! Buenas!
+Somos NEXO‑ART y te ayudamos a transformar tu servicio de detailing en un canal de ventas online.
+
+🚘 ¿Qué vas a lograr con tu página web?
+
+Catálogo 24/7: Tus clientes consultan tratamientos, precios y disponibilidad directamente en tu web, y envían el pedido listo a tu WhatsApp en un clic.
+
+Integración con Meta Business: El sistema envía automáticamente los datos del turno y del cliente a tu WhatsApp, para que solo tengas que confirmar y atender.
+
+Presencia impecable: Optimizamos tu perfil en Google Maps, para que los clientes de tu zona te encuentren primero a vos y no a la competencia.
+
+💡 Tu web no es un gasto, es tu vendedor automático:
+
+Chau consultas repetitivas: Evitá responder una y otra vez "¿Tenés turno?" o "¿Cuánto cuesta el pulido?".
+
+Más ganancias: Si tu equipo pierde 1 hora diaria en responder consultas básicas, son más de 25 horas al mes. Convertí ese tiempo en servicios reales y facturación.
+
+Atención profesional: Brindale a tu cliente la rapidez y confianza que espera al contratar un servicio premium para su vehículo.
+
+⏱️ Te devolvemos lo más valioso: tiempo para hacer crecer tu negocio de detailing.
+
+Mirá un ejemplo de cómo se vería tu web : https://nexoar-art.github.io/MvDetail`;
 
     if (lead.planSeleccionado) {
       msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
@@ -1251,7 +1410,19 @@ function generarMensajeWA(idx) {
   }
 
   // Mensaje por defecto para REPUESTOS (Argentina/Paraguay)
-  let msg = `👋 ¡Hola! Buenas!!. Somos NEXO-ART. Te ayudamos a convertir tu catálogo actual en un canal de ventas online.\n\n🚀 ¿Qué vas a lograr con tu tienda online?\n* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.\n* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp para que solo tengas que cerrar la venta.\n* Presencia local impecable: Optimizamos tu perfil de Google Maps para que los clientes de tu zona te encuentren primeros a vos y no a tu competencia.\n\n💡 Tu tienda web no es un gasto, es un vendedor automático:\n* Chau mensajes repetitivos: Ahorrá el tiempo de responder constantemente "¿Tenés stock?" o "¿Cuánto cuesta?".\n* Aumentá tus ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes perdidas. Convertí ese tiempo en despachos y ventas reales.\n* Atención profesional: Brindale a tu cliente la rapidez que espera al comprar repuestos para su vehículo. Te devuelvo lo más valioso: tiempo para hacer crecer tu negocio.\n\n🔗 Mirá un ejemplo de cómo se vería tu catálogo online acá: https://fc-racing.vercel.app/`;
+  let msg = `👋 ¡Hola! Buenas!!. Somos NEXO-ART. Te ayudamos a convertir tu catálogo actual en un canal de ventas online.
+
+🚀 ¿Qué vas a lograr con tu tienda online?
+* Catálogo 24/7: Tus clientes buscan el repuesto en tu web, consultan stock/precios y envían el pedido listo a tu WhatsApp en un clic.
+* Integración con Meta Business: El sistema envía automáticamente los datos del pedido y del cliente a tu WhatsApp para que solo tengas que cerrar la venta.
+* Presencia local impecable: Optimizamos tu perfil de Google Maps para que los clientes de tu zona te encuentren primeros a vos y no a tu competencia.
+
+💡 Tu tienda web no es un gasto, es un vendedor automático:
+* Chau mensajes repetitivos: Ahorrá el tiempo de responder constantemente "¿Tenés stock?" o "¿Cuánto cuesta?".
+* Aumentá tus ganancias: Si tu equipo pierde 1 hora al día respondiendo consultas básicas, son más de 25 horas al mes perdidas. Convertí ese tiempo en despachos y ventas reales.
+* Atención profesional: Brindale a tu cliente la rapidez que espera al comprar repuestos para su vehículo. Te devuelvo lo más valioso: tiempo para hacer crecer tu negocio.
+
+🔗 Mirá un ejemplo de cómo se vería tu catálogo online acá: https://fc-racing.vercel.app/`;
 
   if (lead.planSeleccionado) {
     msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
@@ -1274,17 +1445,46 @@ function generarMensajeWA(idx) {
 }
 
 function generarMensajeSI() {
-  let msg = `Perfecto 👍\n\nLa idea no es simplemente hacerles una página web.\n\nLa propuesta es transformar su catálogo actual en un canal de ventas online:\n\n🔎 Buscador de productos\n📂 Categorías y filtros\n📸 Fichas con imágenes y características\n💰 Precios y stock\n🛒 Carrito y pedido\n📱 Adaptado a celular\n💬 Integración con WhatsApp\n🚀 Diseño profesional y rápido\n\nAdemás, podemos trabajar con su catálogo actual para organizar los productos y facilitar muchísimo la búsqueda.\n\nSi me pasás el logo y, si tienen, el catálogo/listado de productos, puedo mostrarte cómo quedaría aplicado a su negocio.`;
+  let msg = `Perfecto 👍
+
+La idea no es simplemente hacerles una página web.
+
+La propuesta es transformar su catálogo actual en un canal de ventas online:
+
+🔎 Buscador de productos
+📂 Categorías y filtros
+📸 Fichas con imágenes y características
+💰 Precios y stock
+🛒 Carrito y pedido
+📱 Adaptado a celular
+💬 Integración con WhatsApp
+🚀 Diseño profesional y rápido
+
+Además, podemos trabajar con su catálogo actual para organizar los productos y facilitar muchísimo la búsqueda.
+
+Si me pasás el logo y, si tienen, el catálogo/listado de productos, puedo mostrarte cómo quedaría aplicado a su negocio.`;
   return encodeURIComponent(msg);
 }
 
 function generarMensajePRECIO() {
-  let msg = `Tenemos diferentes alternativas según lo que necesite el negocio.\n\nPara un e-commerce completo, el plan Premium tiene un valor de $430.000, más US$60 mensuales por mantenimiento: actualizaciones, productos, soporte, backups, cambios, optimizacion. mejoras.\n\nIncluye la estructura de tienda online, catálogo, categorías, buscador, filtros, fichas de productos, carrito, adaptación móvil y las herramientas necesarias para convertir el catálogo en un canal de ventas.\n\nSi querés, primero te muestro una demo para que veas exactamente qué recibirías antes de decidir.`;
+  let msg = `Tenemos diferentes alternativas según lo que necesite el negocio.
+
+Para un e-commerce completo, el plan Premium tiene un valor de $430.000, más US$60 mensuales por mantenimiento: actualizaciones, productos, soporte, backups, cambios, optimizacion. mejoras.
+
+Incluye la estructura de tienda online, catálogo, categorías, buscador, filtros, fichas de productos, carrito, adaptación móvil y las herramientas necesarias para convertir el catálogo en un canal de ventas.
+
+Si querés, primero te muestro una demo para que veas exactamente qué recibirías antes de decidir.`;
   return encodeURIComponent(msg);
 }
 
 function generarMensajeNO(ciudad) {
-  let msg = `Totalmente, ningún problema 👍\n\nTe hago una última pregunta:\n\nSi pudieras hacer que un cliente encuentre un producto de tu catálogo por código, nombre o categoría desde el celular, sin tener que preguntarte todo por WhatsApp, ¿eso te ayudaría a ahorrar tiempo y recibir más pedidos?\n\nSi te interesa, te puedo mostrar cómo funcionaría específicamente para ${ciudad}.`;
+  let msg = `Totalmente, ningún problema 👍
+
+Te hago una última pregunta:
+
+Si pudieras hacer que un cliente encuentre un producto de tu catálogo por código, nombre o categoría desde el celular, sin tener que preguntarte todo por WhatsApp, ¿eso te ayudaría a ahorrar tiempo y recibir más pedidos?
+
+Si te interesa, te puedo mostrar cómo funcionaría específicamente para ${ciudad}.`;
   return encodeURIComponent(msg);
 }
 
@@ -1402,7 +1602,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "05/10/2026" || item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
