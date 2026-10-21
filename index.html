@@ -624,7 +624,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Lunes, 05 Octubre 2026</div>
+  <div class="date">📅 Martes, 06 Octubre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -1104,10 +1104,8 @@ const leads = [
   {ciudad:"Chubut", telefono:"+5492804418311", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Chubut", telefono:"+5492804506343", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Chubut", telefono:"+5492945412928", fecha:"04/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS BARCELONA (TALLERES) - 05/10/2026
   {ciudad:"Barcelona 🇪🇸", telefono:"+34933508582", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Barcelona 🇪🇸", telefono:"+34933571266", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS TARRAGONA (TALLERES) - 05/10/2026
   {ciudad:"Tarragona 🇪🇸", telefono:"+34637800296", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Tarragona 🇪🇸", telefono:"+34877051364", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Tarragona 🇪🇸", telefono:"+34977553222", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
@@ -1117,7 +1115,11 @@ const leads = [
   {ciudad:"Tarragona 🇪🇸", telefono:"+34977230404", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Tarragona 🇪🇸", telefono:"+34977212174", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Tarragona 🇪🇸", telefono:"+34977240564", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Tarragona 🇪🇸", telefono:"+34977234430", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Tarragona 🇪🇸", telefono:"+34977234430", fecha:"05/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS MAR DEL PLATA (REPUESTOS) - 06/10/2026
+  {ciudad:"Mar del Plata", telefono:"+5492235766104", fecha:"06/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mar del Plata", telefono:"+5492257413028", fecha:"06/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Mar del Plata", telefono:"+5492236154202", fecha:"06/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1602,7 +1604,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "05/10/2026" || item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "06/10/2026" || item.fecha === "05/10/2026" || item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
