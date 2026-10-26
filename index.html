@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -624,7 +625,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Miércoles, 07 Octubre 2026</div>
+  <div class="date">📅 Jueves, 08 Octubre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -1119,7 +1120,6 @@ const leads = [
   {ciudad:"Mar del Plata", telefono:"+5492235766104", fecha:"06/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Mar del Plata", telefono:"+5492257413028", fecha:"06/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Mar del Plata", telefono:"+5492236154202", fecha:"06/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS USHUAIA (REPUESTOS) - 07/10/2026
   {ciudad:"Ushuaia", telefono:"+5492901440884", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Ushuaia", telefono:"+5492901469866", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Ushuaia", telefono:"+5492901437610", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
@@ -1129,7 +1129,18 @@ const leads = [
   {ciudad:"Ushuaia", telefono:"+5492901419721", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Ushuaia", telefono:"+5492901436843", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Ushuaia", telefono:"+5492901411700", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Ushuaia", telefono:"+5492901487616", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Ushuaia", telefono:"+5492901487616", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS CARMELO URUGUAY (TALLERES) - 08/10/2026
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59899537592", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59899896298", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59845425051", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59899545955", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59845422601", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59845422020", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59845424880", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59898181842", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59845423948", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59845424843", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1201,7 +1212,7 @@ MIRA UN VIDEO EXPLICATIVO: https://youtu.be/BzIXPJ6mH7Y
 
 📌 Tambien puede consultar un ejemplo de un proyecto: https://nexoar-art.github.io/Taller-Mec-nico-YKS/`;
     } else {
-      // Mensaje para talleres de Argentina
+      // Mensaje para talleres de Argentina y resto de Latam
       msg = `🔧 ¡Hola! Somos NEXO-ART y ayudamos a los talleres mecánicos a captar más clientes y gestionar mejor sus solicitudes online.
 
 ✅ ¿Qué conseguirá con su página web?
@@ -1614,7 +1625,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "07/10/2026" || item.fecha === "06/10/2026" || item.fecha === "05/10/2026" || item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "08/10/2026" || item.fecha === "07/10/2026" || item.fecha === "06/10/2026" || item.fecha === "05/10/2026" || item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
