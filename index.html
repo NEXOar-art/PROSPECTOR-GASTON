@@ -625,7 +625,7 @@
   <div class="subtitle">
     <strong>NEXO‑ART</strong> es una agencia digital especializada en crear páginas web y soluciones de e‑commerce diseñadas para aumentar ventas y optimizar la atención al cliente. Transformamos la presencia online de casas de repuestos de motos y automotrices, comercios y empresas, convirtiendo visitantes en clientes reales.
   </div>
-  <div class="date">📅 Jueves, 08 Octubre 2026</div>
+  <div class="date">📅 Viernes, 09 Octubre 2026</div>
 </div>
 
 <div class="leads-counter-bar">
@@ -793,7 +793,7 @@
 
 <div class="table-container">
   <div class="table-header">
-    <h3>🔧 Leads de Negocios (Repuestos, Detailing, Desarmaderos y Talleres) - Zonas Varias + Latam + España</h3>
+    <h3>🔧 Leads de Negocios (Repuestos, Detailing, Desarmaderos, Talleres y Energía Renovable) - Zonas Varias + Latam + España</h3>
     <span class="table-count" id="countLeads">0 negocios</span>
   </div>
   <div class="scroll-hint">👉 Deslizá horizontalmente para ver todas las columnas</div>
@@ -1130,7 +1130,6 @@ const leads = [
   {ciudad:"Ushuaia", telefono:"+5492901436843", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Ushuaia", telefono:"+5492901411700", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Ushuaia", telefono:"+5492901487616", fecha:"07/10/2026", servicio:"repuestos", planSeleccionado:null, skill:false, potential:false},
-  // NUEVOS LEADS CARMELO URUGUAY (TALLERES) - 08/10/2026
   {ciudad:"Carmelo 🇺🇾", telefono:"+59899537592", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Carmelo 🇺🇾", telefono:"+59899896298", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Carmelo 🇺🇾", telefono:"+59845425051", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
@@ -1140,7 +1139,18 @@ const leads = [
   {ciudad:"Carmelo 🇺🇾", telefono:"+59845424880", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Carmelo 🇺🇾", telefono:"+59898181842", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Carmelo 🇺🇾", telefono:"+59845423948", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Carmelo 🇺🇾", telefono:"+59845424843", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false}
+  {ciudad:"Carmelo 🇺🇾", telefono:"+59845424843", fecha:"08/10/2026", servicio:"taller", planSeleccionado:null, skill:false, potential:false},
+  // NUEVOS LEADS ENERGÍA RENOVABLE - 09/10/2026
+  {ciudad:"Catamarca", telefono:"+5493834063431", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Tucumán", telefono:"+5493814541219", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Salta", telefono:"+5493876180389", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Salta", telefono:"+523872218491", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Salta", telefono:"+5493874192121", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Salta", telefono:"+5493874533376", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Salta", telefono:"+5493874504718", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Salta", telefono:"+5493875283485", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Jujuy", telefono:"+5493884087176", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Jujuy", telefono:"+5493885085868", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false}
 ];
 
 // ==================== PRECIOS ====================
@@ -1157,12 +1167,10 @@ const PLANES_LATAM = {
   ecommerce: { precio: 300, mant: 60 }
 };
 
-// Helper: ¿Es lead internacional? (Si no empieza con +549, es internacional y usa USD)
 function isIntl(lead) {
   return !lead.telefono.startsWith('+549');
 }
 
-// Helper: ¿Es lead de España? (Empieza con +34)
 function isEspana(lead) {
   return lead.telefono.startsWith('+34');
 }
@@ -1173,11 +1181,73 @@ function generarMensajeWA(idx) {
   const lead = leads[idx];
   const tc = parseFloat(document.getElementById('exchangeRate').value) || 1500;
 
-  // Mensaje para TALLERES (Argentina e Internacional)
+  // Mensaje para ENERGÍA RENOVABLE
+  if (lead.servicio === 'energia_renovable') {
+    let msg = `Hola 👋, somos NEXO-ART y ayudamos a empresas de energía solar y energías renovables a captar más clientes y gestionar consultas de forma profesional a través de Internet.
+
+☀️ ¿Qué conseguirá con su página web?
+
+✅ Solicitudes de presupuestos 24/7
+Sus potenciales clientes podrán solicitar cotizaciones para paneles solares, inversores, baterías, sistemas aislados o instalaciones completas desde cualquier dispositivo, enviando toda la información directamente a su WhatsApp.
+
+✅ Integración con WhatsApp y Meta Business
+Reciba automáticamente los datos del cliente, ubicación, consumo energético y tipo de proyecto para responder más rápido y cerrar más ventas.
+
+✅ Mayor visibilidad local
+Optimizamos su presencia en Google Maps y Google para que particulares, empresas y comercios de su zona encuentren su negocio antes que a la competencia.
+
+✅ Catálogo digital de productos y servicios
+Muestre sus paneles solares, inversores, baterías de litio, sistemas de bombeo solar e instalaciones realizadas en un único lugar.
+
+☀️ Su web no es un gasto, es una herramienta de captación de clientes que trabaja las 24 horas.
+
+📈 Más consultas de personas interesadas en reducir su factura eléctrica.
+
+⏳ Menos tiempo respondiendo las mismas preguntas una y otra vez.
+
+💰 Más oportunidades de venta y proyectos cerrados.
+
+🤝 Una imagen profesional que inspire confianza desde el primer contacto.
+
+📍 Servicios, ubicación, horarios, medios de pago y formas de contacto disponibles en un solo lugar.
+
+🚀 Le ayudamos a centrarse en lo que realmente importa: instalar más sistemas, generar más energía y hacer crecer su empresa.
+
+Si le interesa conocer cómo podría verse la página web de su empresa, podemos mostrarle una propuesta sin compromiso. 😊📱`;
+
+    if (lead.planSeleccionado) {
+      msg += `\n\n---\n📋 *Propuesta personalizada para vos:*\n\n`;
+      if (isIntl(lead)) {
+        const p = PLANES_LATAM[lead.planSeleccionado];
+        const planNombre = lead.planSeleccionado === 'starter' ? 'Starter' : (lead.planSeleccionado === 'business' ? 'Business' : 'E-Commerce');
+        const emoji = lead.planSeleccionado === 'starter' ? '🚀' : (lead.planSeleccionado === 'business' ? '💼' : '🛒');
+        msg += `${emoji} *Plan ${planNombre}:* US$${p.precio}\n`;
+        msg += `🔧 *Mantenimiento mensual:* US$${p.mant}/mes\n`;
+        if (lead.skill) {
+          msg += `📊 *Skill Tablero de Control:* + US$${PRECIO_SKILL} (pago único)\n`;
+        }
+      } else {
+        const plan = PLANES[lead.planSeleccionado];
+        msg += `${plan.emoji} *Plan ${plan.nombre}:* $${plan.precio.toLocaleString('es-AR')} ARS\n`;
+        if (plan.mantenimiento > 0) {
+          const mantArs = Math.round(plan.mantenimiento * tc).toLocaleString('es-AR');
+          msg += `🔧 *Mantenimiento mensual:* $${plan.mantenimiento} USD (aprox. $${mantArs} ARS)/mes\n`;
+        } else {
+          msg += `🔧 *Mantenimiento mensual:* $0 (sin costo)\n`;
+        }
+        if (lead.skill) {
+          const skillArs = Math.round(PRECIO_SKILL * tc).toLocaleString('es-AR');
+          msg += `📊 *Skill Tablero de Control:* + $${PRECIO_SKILL} USD (aprox. $${skillArs} ARS) (pago único)\n`;
+        }
+      }
+      msg += `\n¡Quedamos a disposición para cualquier consulta!`;
+    }
+    return encodeURIComponent(msg);
+  }
+
+  // Mensaje para TALLERES
   if (lead.servicio === 'taller') {
     let msg = '';
-    
-    // Mensaje específico para España
     if (isEspana(lead)) {
       msg = `Hola,
 
@@ -1212,7 +1282,6 @@ MIRA UN VIDEO EXPLICATIVO: https://youtu.be/BzIXPJ6mH7Y
 
 📌 Tambien puede consultar un ejemplo de un proyecto: https://nexoar-art.github.io/Taller-Mec-nico-YKS/`;
     } else {
-      // Mensaje para talleres de Argentina y resto de Latam
       msg = `🔧 ¡Hola! Somos NEXO-ART y ayudamos a los talleres mecánicos a captar más clientes y gestionar mejor sus solicitudes online.
 
 ✅ ¿Qué conseguirá con su página web?
@@ -1268,7 +1337,7 @@ MIRA UN VIDEO EXPLICATIVO: https://youtu.be/BzIXPJ6mH7Y
     return encodeURIComponent(msg);
   }
 
-  // Mensaje para PANAMÁ (casas de repuestos - precios en USD)
+  // Mensaje para PANAMÁ
   if (lead.servicio === 'panama') {
     let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu casa de repuestos en un canal de ventas online.
 
@@ -1307,7 +1376,7 @@ MIRA UN VIDEO EXPLICATIVO: https://youtu.be/BzIXPJ6mH7Y
     return encodeURIComponent(msg);
   }
 
-  // Mensaje para CHILE, URUGUAY y BOLIVIA (Latinoamérica - precios en USD)
+  // Mensaje para CHILE, URUGUAY y BOLIVIA
   if (lead.servicio === 'chile' || lead.servicio === 'latam' || lead.servicio === 'bolivia') {
     let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos armar tu pagina empresa o  transformar tu catálogo de repuestos en un canal de ventas online.
 
@@ -1348,7 +1417,7 @@ Presencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que 
     return encodeURIComponent(msg);
   }
 
-  // Mensaje específico para DESARMADERO
+  // Mensaje para DESARMADERO
   if (lead.servicio === 'desarmadero') {
     let msg = `🔩 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu desarmadero en un canal de ventas online.
 
@@ -1388,7 +1457,7 @@ Presencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que 
     return encodeURIComponent(msg);
   }
 
-  // Mensaje específico para DETAILING
+  // Mensaje para DETAILING
   if (lead.servicio === 'detailing') {
     let msg = `✨ ¡Hola! Buenas!
 Somos NEXO‑ART y te ayudamos a transformar tu servicio de detailing en un canal de ventas online.
@@ -1432,7 +1501,7 @@ Mirá un ejemplo de cómo se vería tu web : https://nexoar-art.github.io/MvDeta
     return encodeURIComponent(msg);
   }
 
-  // Mensaje por defecto para REPUESTOS (Argentina/Paraguay)
+  // Mensaje por defecto para REPUESTOS
   let msg = `👋 ¡Hola! Buenas!!. Somos NEXO-ART. Te ayudamos a convertir tu catálogo actual en un canal de ventas online.
 
 🚀 ¿Qué vas a lograr con tu tienda online?
@@ -1593,6 +1662,8 @@ function renderTable() {
       cityIcon = '🔩';
     } else if (item.servicio === 'taller') {
       cityIcon = '🔧';
+    } else if (item.servicio === 'energia_renovable') {
+      cityIcon = '☀️';
     }
 
     let starterLabel = '🚀 $120k';
@@ -1625,7 +1696,7 @@ function renderTable() {
       <a href="https://wa.me/${item.telefono}?text=${msgNo}" target="_blank" class="reply-btn no" title="Si dice NO INTERESA">🔄 No</a>
     `;
 
-    const isNew = (item.fecha === "08/10/2026" || item.fecha === "07/10/2026" || item.fecha === "06/10/2026" || item.fecha === "05/10/2026" || item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
+    const isNew = (item.fecha === "09/10/2026" || item.fecha === "08/10/2026" || item.fecha === "07/10/2026" || item.fecha === "06/10/2026" || item.fecha === "05/10/2026" || item.fecha === "04/10/2026" || item.fecha === "03/10/2026" || item.fecha === "02/10/2026" || item.fecha === "01/10/2026" || item.fecha === "30/09/2026" || item.fecha === "29/09/2026" || item.fecha === "28/09/2026" || item.fecha === "27/09/2026" || item.fecha === "26/09/2026" || item.fecha === "25/09/2026" || item.fecha === "24/09/2026" || item.fecha === "23/09/2026" || item.fecha === "22/09/2026" || item.fecha === "21/09/2026" || item.fecha === "20/09/2026" || item.fecha === "19/09/2026" || item.fecha === "18/09/2026");
     const dateClass = isNew ? 'date-cell new' : 'date-cell';
 
     let priceDisplay = '<span class="price-display">Sin plan</span>';
