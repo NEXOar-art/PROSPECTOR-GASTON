@@ -1144,7 +1144,7 @@ const leads = [
   {ciudad:"Catamarca", telefono:"+5493834063431", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Tucumán", telefono:"+5493814541219", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Salta", telefono:"+5493876180389", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
-  {ciudad:"Salta", telefono:"+523872218491", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
+  {ciudad:"Salta", telefono:"+5493872218491", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Salta", telefono:"+5493874192121", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Salta", telefono:"+5493874533376", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
   {ciudad:"Salta", telefono:"+5493874504718", fecha:"09/10/2026", servicio:"energia_renovable", planSeleccionado:null, skill:false, potential:false},
@@ -1167,10 +1167,12 @@ const PLANES_LATAM = {
   ecommerce: { precio: 300, mant: 60 }
 };
 
+// Helper: ¿Es lead internacional? (Si no empieza con +549, es internacional y usa USD)
 function isIntl(lead) {
   return !lead.telefono.startsWith('+549');
 }
 
+// Helper: ¿Es lead de España? (Empieza con +34)
 function isEspana(lead) {
   return lead.telefono.startsWith('+34');
 }
@@ -1183,7 +1185,7 @@ function generarMensajeWA(idx) {
 
   // Mensaje para ENERGÍA RENOVABLE
   if (lead.servicio === 'energia_renovable') {
-    let msg = `Hola 👋, somos NEXO-ART y ayudamos a empresas de energía solar y energías renovables a captar más clientes y gestionar consultas de forma profesional a través de Internet.
+    let msg = `Hola 👋, somos NEXO-ART. Hemos estado revisando la presencia digital de empresas del sector de energía solar y energías renovables y notamos que actualmente su empresa no cuenta con una presencia optimizada en Google Maps, lo que puede hacer que potenciales clientes de su zona encuentren antes a la competencia que a usted.
 
 ☀️ ¿Qué conseguirá con su página web?
 
@@ -1245,9 +1247,11 @@ Si le interesa conocer cómo podría verse la página web de su empresa, podemos
     return encodeURIComponent(msg);
   }
 
-  // Mensaje para TALLERES
+  // Mensaje para TALLERES (Argentina e Internacional)
   if (lead.servicio === 'taller') {
     let msg = '';
+    
+    // Mensaje específico para España
     if (isEspana(lead)) {
       msg = `Hola,
 
@@ -1282,6 +1286,7 @@ MIRA UN VIDEO EXPLICATIVO: https://youtu.be/BzIXPJ6mH7Y
 
 📌 Tambien puede consultar un ejemplo de un proyecto: https://nexoar-art.github.io/Taller-Mec-nico-YKS/`;
     } else {
+      // Mensaje para talleres de Argentina y resto de Latam
       msg = `🔧 ¡Hola! Somos NEXO-ART y ayudamos a los talleres mecánicos a captar más clientes y gestionar mejor sus solicitudes online.
 
 ✅ ¿Qué conseguirá con su página web?
@@ -1337,7 +1342,7 @@ MIRA UN VIDEO EXPLICATIVO: https://youtu.be/BzIXPJ6mH7Y
     return encodeURIComponent(msg);
   }
 
-  // Mensaje para PANAMÁ
+  // Mensaje para PANAMÁ (casas de repuestos - precios en USD)
   if (lead.servicio === 'panama') {
     let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu casa de repuestos en un canal de ventas online.
 
@@ -1376,7 +1381,7 @@ MIRA UN VIDEO EXPLICATIVO: https://youtu.be/BzIXPJ6mH7Y
     return encodeURIComponent(msg);
   }
 
-  // Mensaje para CHILE, URUGUAY y BOLIVIA
+  // Mensaje para CHILE, URUGUAY y BOLIVIA (Latinoamérica - precios en USD)
   if (lead.servicio === 'chile' || lead.servicio === 'latam' || lead.servicio === 'bolivia') {
     let msg = `👋 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos armar tu pagina empresa o  transformar tu catálogo de repuestos en un canal de ventas online.
 
@@ -1417,7 +1422,7 @@ Presencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que 
     return encodeURIComponent(msg);
   }
 
-  // Mensaje para DESARMADERO
+  // Mensaje específico para DESARMADERO
   if (lead.servicio === 'desarmadero') {
     let msg = `🔩 ¡Hola! Buenas. Somos NEXO‑ART y te ayudamos a transformar tu desarmadero en un canal de ventas online.
 
@@ -1457,7 +1462,7 @@ Presencia local impecable: Optimizamos tu perfil en Google Maps, asegurando que 
     return encodeURIComponent(msg);
   }
 
-  // Mensaje para DETAILING
+  // Mensaje específico para DETAILING
   if (lead.servicio === 'detailing') {
     let msg = `✨ ¡Hola! Buenas!
 Somos NEXO‑ART y te ayudamos a transformar tu servicio de detailing en un canal de ventas online.
@@ -1501,7 +1506,7 @@ Mirá un ejemplo de cómo se vería tu web : https://nexoar-art.github.io/MvDeta
     return encodeURIComponent(msg);
   }
 
-  // Mensaje por defecto para REPUESTOS
+  // Mensaje por defecto para REPUESTOS (Argentina/Paraguay)
   let msg = `👋 ¡Hola! Buenas!!. Somos NEXO-ART. Te ayudamos a convertir tu catálogo actual en un canal de ventas online.
 
 🚀 ¿Qué vas a lograr con tu tienda online?
